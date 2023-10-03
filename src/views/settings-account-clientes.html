@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html
+  lang="en"
+  class="light-style layout-menu-fixed"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="../assets/"
+  data-template="vertical-menu-template-free"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+
+    <title>Matrimol SAS | Formulario - Clientes</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+
+
+    <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="../assets/css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <script src="../assets/vendor/js/helpers.js"></script>
+
+   
+    <script src="../assets/js/config.js"></script>
+  </head>
+
+  <body>
+  
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <a href="tables-clientes.html" class="btn btn-danger">Atras</a>
+              <h4 class="fw-bold py-3 mb-4">CLIENTE</h4>
+
+              <div class="row">
+                <div class="col-md-12">
+               
+                  <div class="card mb-4">
+                    <h5 class="card-header">Formulario Cliente</h5>
+                    <!-- Account -->
+                  
+                    <hr class="my-0" />
+                    <div class="card-body">
+                      <form id="formClient" action="#">
+                        <div class="row">
+                          
+                       
+                            <input
+                              class="form-control"
+                              type="text"
+                              id="id"
+                              name="id"
+                              placeholder="idClient"
+                              hidden
+                            />
+
+                                    
+                            <div class="mb-3 col-md-4">
+                              <label class="form-label" for="identificacion">Identificacion</label>
+                              <div class="input-group">
+                                <select class="form-select" id="tipoidentificacion">
+                                  <option value="NIT">NIT</option>
+                                  <option value="CI">CEDULA</option>
+                                  <option value="LC">LICENCIA DE CONDUCIR</option>
+                                  <option value="PASAPORTE">PASAPORTE</option>
+                                </select>
+                            
+                              
+                              <input type="text" 
+                              class="form-control" 
+                              id="identificacion"
+                              aria-label="Text input with dropdown button" />
+                            </div>
+                            <p id="validateidentificacion" class="d-none text-danger">Este campo es totalmente obligatorio!</p>
+                            </div>
+                
+
+                          <div class="mb-3 col-md-4">
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <input
+                              class="form-control"
+                              type="text"
+                              id="nombre"
+                              name="nombre"
+                              placeholder="Example: Miguel"
+                              autofocus
+                            />
+                            <p id="validatenombre" class="d-none text-danger">Este campo es totalmente obligatorio!</p>
+
+                          </div>
+                       
+
+                          <div class="mb-3 col-md-4">
+                            <label for="movil" class="form-label">Movil</label>
+                            <input
+                              class="form-control"
+                              type="text"
+                              id="movil"
+                              name="movil"
+                              placeholder='ejemplo 316 655 1231'
+                            />
+                            <p id="validatemovil" class="d-none text-danger">Este campo es totalmente obligatorio!</p>
+
+                          </div>
+
+                        
+                          <div class="mb-3 col-md-12">
+                            <label for="direccion" class="form-label">Direccion</label>
+                            <textarea
+                              class="form-control"
+                              type="text"
+                              id="direccion"
+                              name="direccion"
+                              placeholder="Av libertador, calle 9, carrera 55"
+                            ></textarea>
+                            <p id="validatedireccion" class="d-none text-danger">Este campo es totalmente obligatorio!</p>
+
+                          </div>
+                          
+                        </div>
+
+                        <div class="mt-2 ">
+                          <button 
+                           type="submit" 
+                           id="btnGuardar" 
+                           class="btn btn-primary me-2"
+                           >
+                           Guardar cambios
+                          </button>
+
+                          <button 
+                           type="reset" 
+                           id="btnCancelar" 
+                           class="btn btn-outline-secondary">
+                           Cancel
+                          </button>
+
+                          <button 
+                          type="submit" 
+                          id="btnEliminar" 
+                          class="btn btn-danger me-2 align-item-end"
+                          >
+                          Eliminar
+                         </button>
+
+                        </div>
+                        
+                          
+                        
+                      </form>
+                    </div>
+                    <!-- /Account -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- / Content -->
+
+            <!-- Footer -->
+           
+            <!-- / Footer -->
+
+            <div class="content-backdrop fade"></div>
+          </div>
+          <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+      </div>
+
+      <!-- Overlay -->
+      <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+    <!-- / Layout wrapper -->
+
+
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <script src="../assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+
+    <!-- Main JS -->
+    <script src="../assets/js/main.js"></script>
+    
+       <!--Controlador de datos JS -->
+       <script src="./js/Controllers/clientes/account-clientes.js"></script>
+
+  </body>
+</html>

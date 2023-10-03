@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+
+<html
+  lang="en"
+  class="light-style layout-menu-fixed"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="../assets/"
+  data-template="vertical-menu-template-free"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+
+    <title>Matrimol SAS | Planilla de bujes - jefe de planta</title>
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+
+
+
+    <!-- Icons. Uncomment required icon fonts -->
+    <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="../assets/css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <script src="../assets/vendor/js/helpers.js"></script>
+
+    <script src="../assets/js/config.js"></script>
+  </head>
+
+  <body>
+    <!-- Layout wrapper -->
+    <div class="content-wrapper">
+      <!-- Content -->
+      <div class="container-xxl flex-grow-1 container-p-y">
+       <a href="PanelJefePlanta.html" class="btn btn-danger" id="btnvolver"><i class='bx bxs-caret-left-circle bx-burst-hover bx-md'></i> Volver</a> 
+       <hr>
+       <h4 class="fw-bold py-3 mb-2">CONTROL DE PRODUCCION DE BUJES - Referencia : <span id="getreference"></span></h4>
+        
+       <div class="row col-md-12 mx-0" id="formdetalles">
+          
+        <div class="col shadow m-2 mt-4 text-center card" style="padding:20px; border-radius: 5px;" id="cantFabric"> 
+          <p>Cantidad a fabricar</p>
+          <h1>0</h1>
+     </div> 
+        
+          <div class="col shadow m-2 mt-4 text-center card" style="padding:20px; border-radius: 5px;" id="cantidadAsignada"> 
+              <p>Cantidad asignada</p>
+              <h1>0</h1>
+         </div>    
+
+
+         <div class="col shadow m-2 mt-4 text-center card" style="padding:20px; border-radius: 5px;" id="cantidadPendiente">
+          <p>Cantidad pendiente por asignar</p>
+         <h1>0</h1>
+       </div>      
+
+    </div>
+        <div class="row">
+          <div class="col-md-12">   
+            <div class="card mb-4">
+              <!-- Account -->
+              <hr class="my-0" />
+              <div class="card-body d-none" id="planillaasignacion">
+                <form id="formAccountSettings" class="" action="#">
+                  <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <input
+                          class="form-control"
+                          type="text"
+                          id="idclient"
+                          class="idclient"
+                          hidden    
+                        />
+
+                        <input
+                        class="form-control"
+                        type="text"
+                        id="siglasCB"
+                        hidden
+                      />
+
+                        <input
+                          class="form-control"
+                          type="text"
+                          id="codigoCB"
+                          hidden
+                        />
+
+                        <input
+                        class="form-control"
+                        type="text"
+                        id="numeroCB"
+                        hidden
+                        />
+
+                        <input
+                        class="form-control"
+                        type="text"
+                        id="numordenproduccion"
+                        class="numordenproduccion"
+                        hidden
+                        />
+
+                      <label class="form-label" for="operador">Operador responsable(*)</label>
+                      <input type="text" id="idOperador" hidden>
+                      <div class="input-group">
+                        <button class="btn btn-outline-primary"   data-bs-toggle="modal"
+                        data-bs-target="#modalSearchOperador" type="button">Buscar</button>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="operador"
+                          placeholder=""
+                          readonly/>
+                      </div> 
+                      <p class="text-danger d-none" id="messageOperador">Este campo es totalmente obligatorio!</p>     
+      
+                    </div> 
+
+               
+                    <div class="mb-3 col-md-4">
+                      <label class="form-label" for="maquinaria">Maquinaria(*)</label>
+                      <input type="text" id="idMaquinaria" hidden>
+                      <div class="input-group">
+                        <button class="btn btn-outline-primary"
+                          data-bs-toggle="modal"
+                          data-bs-target="#modalSearchMaquinaria" 
+                          type="button" 
+                          id="button-addon1">Buscar
+                        </button>
+
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="maquinaria"
+                          readonly
+                        />
+                      </div>
+                      <p class="text-danger d-none" id="messageMaquinaria">Este campo es totalmente obligatorio!</p>     
+
+                    </div>
+
+                    <div class="mb-3 col-md-4">
+                      <label class="form-label" for="maquinaria">Asignar cantidad</label>
+                        <input
+                          type="number"
+                          class="form-control"
+                          id="asigcantidad"
+                        />
+                      <p class="text-danger messageCantidad" id="messageCantidad"></p>     
+
+                    </div>
+
+                    <div class="mb-3 col-md-4">
+                      <label class="form-label" for="maquinaria">Longitud buje</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="longbuje"
+                        />
+                      <p class="text-danger messageLongitudBuje"></p>     
+
+                    </div>   <div class="mb-3 col-md-4">
+                      <label class="form-label" for="maquinaria">Longitud rosca</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="longrosca"
+                        />
+                      <p class="text-danger messageLongitudRosca" id="messageCantidad"></p>     
+
+                    </div>
+
+                   
+                      <!--Producto id-->
+                      <input class="form-control" type="text"  id="idProducto" hidden />                        
+
+
+               
+
+              
+        
+
+              
+                  <hr>
+
+                  <div class="mt-2">
+                    <button 
+                     type="submit" 
+                     id="btnRegister" 
+                     class="btn btn-primary me-2"
+                     disabled="disabled"
+                     >
+                     Enviar
+                    </button>
+
+                    <button 
+                     type="reset" 
+                     id="btnCancelar" 
+                     class="btn btn-outline-secondary">
+                     Cancelar
+                    </button>
+                  </div>
+                </form>
+              </div>
+
+
+
+               
+                      <!--Modal Buscar Operador-->
+      <div class="modal fade" id="modalSearchOperador" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-lg modal-dialog-scrollable " role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="modalScrollableTitle">BUSCAR OPERADOR</h5>
+
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+
+                            </div>
+                            <div class="modal-body">
+                              <div class="input-group input-group-merge">
+                                <span class="input-group-text" id="basic-addon-search31"><i class="bx bx-search"></i></span>
+                                <input
+                                  type="text"
+                                  id="buscador"
+                                  class="form-control"
+                                  placeholder="Search..."
+                                  aria-label="Search..."
+                                  aria-describedby="basic-addon-search31"
+                                />
+                              </div>
+                            
+                              <hr>
+
+                              <div class="card">
+                                <div class="table-responsive text-nowrap">
+                                  <table class="table table-hover">
+                                    <thead>
+                                      <tr>
+                                        <th>Nº</th>
+                                        <th>ALIAS</th>
+                                        <th>NOMBRE</th>
+                                        <th>APELLIDO</th>
+                                        <th>ACCION</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody class="table-border-bottom-0" id="myoperadores">
+                                      
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                              
+                       
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                Cancelar
+                              </button>
+                  
+                            </div>
+                          </div>
+                        </div>
+         </div>
+
+                   <!--Modal Buscar maquinaria-->
+      <div class="modal fade" id="modalSearchMaquinaria" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-lg modal-dialog-scrollable " role="document">
+                             <div class="modal-content">
+                                   <div class="modal-header">
+                           <h5 class="modal-title" id="modalScrollableTitle">BUSCAR MAQUINARIA</h5>
+                                <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                                ></button>
+                             </div>
+
+                          <div class="modal-body">
+                           <div class="input-group input-group-merge">
+                            <span class="input-group-text" id="basic-addon-search31"><i class="bx bx-search"></i></span>
+                                  <input
+                                    type="text"
+                                    id="buscador"
+                                    class="form-control"
+                                    placeholder="Search..."
+                                    aria-label="Search..."
+                                    aria-describedby="basic-addon-search31"/>
+                                </div>
+                                <hr>
+                      
+                             <div class="card">
+                               <div class="table-responsive text-nowrap">
+                                 <table class="table table-hover">
+                                 <thead>
+                                  <tr>
+                                    <th>N</th>
+                                    <th>DESCRIPCION</th>
+                                    <th>ALIAS</th>
+                                    <th>ACCION</th>
+                                  </tr>
+                                </thead>
+                           <tbody class="table-border-bottom-0" id="mymaquinaria"></tbody>
+                               </table>
+                                 </div>
+                                  </div>
+                                   </div>
+                                    <div class="modal-footer">
+                                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                       Cancelar
+                                      </button>
+                                      </div>
+                                       </div>
+                                       </div>
+      </div>
+                      
+     <!--Modal Buscar Articulos-->
+       <div class="modal fade" id="modalSearchArticle" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-lg modal-dialog-scrollable " role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="modalScrollableTitle">BUSCAR PRODUCTO/REFERENCIA</h5>
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+
+                            </div>
+                            <div class="modal-body">
+                              <div class="input-group input-group-merge">
+                                <span class="input-group-text" id="basic-addon-search31"><i class="bx bx-search"></i></span>
+                                <input
+                                  type="text"
+                                  id="buscador"
+                                  class="form-control"
+                                  placeholder="Search..."
+                                  aria-label="Search..."
+                                  aria-describedby="basic-addon-search31"
+                                />
+                              </div>
+                            
+                              <hr>
+
+                              <div class="card">
+                                <div class="table-responsive text-nowrap">
+                                  <table class="table table-hover">
+                                    <thead>
+                                      <tr>
+                                        <th>N</th>
+                                        <th>REFERENCIA</th>
+                                        <th>DESCRIPCION</th>
+                                        <th>ACCION</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody class="table-border-bottom-0" id="myArticles"></tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                Cancelar
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+          </div>
+
+  </div>
+ </div>
+
+ <h4 class="fw-bold py-3 mb-2">OPERADORES QUE PARTICIPAN EN EL PROCESO</h4>
+ <button class="btn btn-success mb-3" id="btnAsignar">Asignar tarea <i class='bx bx-message-square-add bx-sm'></i></i></button>
+
+          <div class="card">
+            <div class="table-responsive text-nowrap">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>Nº</th>
+                    <th>Alias</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Asignados</th>
+                    <th>Producidos</th>
+                    <th>Proceso</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody class="table-border-bottom-0" id="myoperadoresbujes">
+                  <!--Aqui se renderizada la tabla llena en caso de tener datos-->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+  <!--Modal para asignar cantidad al operador-->
+  <div class="modal fade" id="modalAsignar" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title" id="modalScrollableTitle">AGREGAR CANTIDAD</h5>
+
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <hr>
+
+              <div class="modal-body">
+                <form id="form" action="#">
+                  <div class="row">                                
+                    <input type="text" id="modalid" hidden></input>
+                    
+                    <div class="mb-3 col-md-6">
+                      <label for="modalproducto" class="form-label">Producto</label>
+                      <input
+                        class="form-control"
+                        type="text"
+                        id="modalproducto"
+                        readonly
+                      />
+                    </div>
+                
+                    <div class="mb-3 col-md-6">
+                      <label for="modalreferencia" class="form-label">Referencia</label>
+                      <input
+                        class="form-control"
+                        type="text"
+                        id="modalreferencia"
+                        readonly
+                      />
+                    </div>
+
+                    <div class="mb-3 col-md-6">
+                      <label for="modalcantidad" class="form-label">Cantidad pendiente por asignar</label>
+                      <input
+                        class="form-control"
+                        type="number"
+                        id="modalcantidad"
+                        readonly
+                      />
+                    </div>
+
+                 
+                    <div class="mb-3 col-md-6">
+                      <label for="modalcantidadAumentar" class="form-label">Cantidad agregada</label>
+                      <input
+                        class="form-control"
+                        type="number"
+                        id="modalcantidaAumentar"
+                        placeholder="Digite una cantidad"
+                      />
+                      <p  class="text-danger validarcantidad"></p>
+                    </div>
+
+
+                 
+                  </div>
+                </form>
+                    <button type="submit" disabled='disabled' class="btn btn-primary btnnuevacantidad" data-bs-dismiss="modal">Enviar</button>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                  Cerrar
+                </button>
+              </div>
+            </div>
+          </div>
+</div>
+
+ <!--Modal para revisar 1-->
+ <div class="modal fade" id="modalRevisionJefePlanta" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+       <div class="modal-header">
+          <h5 class="modal-title" id="modalScrollableTitle">REVISION JEFE DE PLANTA</h5>
+
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <hr>
+
+            <div class="modal-body">
+              <form id="form" action="#" class="form-corriente">
+                <div class="row">                                
+                  <input type="text" id="idrevision" hidden ></input>
+                  
+                  <div class="mb-3 col-md-6">
+                    <label for="modalproducto" class="form-label">Producto</label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      id="revisionproducto"
+                      readonly
+                    />
+                  </div>
+              
+                  <div class="mb-3 col-md-6">
+                    <label for="modalreferencia" class="form-label">Referencia</label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      id="revisionreferencia"
+                      readonly
+                    />
+                  </div>
+
+                  <div class="mb-3 col-md-6">
+                    <label class="form-label">TOTAL CONFORMES - <span>(OPERADOR)</span></label>
+                    <input
+                      class="form-control"
+                      type="number"
+                      id="operadorconformes"
+                      readonly
+                    />
+
+                    <input
+                    class="form-control"
+                    type="number"
+                    id="operadorsi"
+                    hidden
+                  />
+                  </div>
+
+                  <div class="mb-3 col-md-6">
+                    <label class="form-label">TOTAL NO CONFORMES - <span>(OPERADOR)</span></label>
+
+                    <input
+                    class="form-control"
+                    type="number"
+                    id="operadorno"
+                    hidden
+                  />
+                      <input
+                      class="form-control"
+                      type="number"
+                      id="operadornoconformes"
+                      readonly
+                    />
+                  </div>
+
+                
+               
+                </div>
+                <button type="submit" class="btn btn-success btnRevisar mt-3">Revisar</button>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                Cerrar
+              </button>
+            </div>
+          </div>
+        </div>
+</div>
+
+      </div>
+      <div class="content-backdrop fade"></div>
+    </div>
+
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <script src="../assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+
+    <script src="./js/Controllers/controlBujesJefe/planilla-control-bujes.js"></script>
+    <!-- Main JS -->
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

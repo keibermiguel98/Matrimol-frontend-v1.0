@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+
+<html
+  lang="en"
+  class="light-style layout-menu-fixed"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="../assets/"
+  data-template="vertical-menu-template-free"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+
+    <title>Matrimol SAS | ORDEN DE PRODUCCION JEFE PLANTA</title>
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+
+
+
+    <!-- Icons. Uncomment required icon fonts -->
+    <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="../assets/css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <script src="../assets/vendor/js/helpers.js"></script>
+
+    <script src="../assets/js/config.js"></script>
+  </head>
+
+  <body>
+    <!-- Layout wrapper -->
+    <div class="content-wrapper">
+      <!-- Content -->
+      <div class="container-xxl flex-grow-1 container-p-y">
+       <button class="btn btn-danger" id="btnvolver"><i class='bx bxs-caret-left-circle bx-burst-hover bx-md'></i> Volver</button> 
+       <hr>
+       <h4 class="fw-bold py-3 mb-4">ORDEN DE PRODUCCION - NUEVA </h4>
+        <!--PENDIENTE POR ALINEAR ROW NO FUNCIONA-->
+        <div class="row">
+        
+        
+        </div>
+        <div class="row">
+          <div class="col-md-12">   
+            <div class="card mb-4">
+              <!-- Account -->
+              <hr class="my-0" />
+              <div class="card-body">
+                <form id="formAccountSettings" action="#">
+                  <div class="row">
+                    <div class="mb-1 col-md-6">
+                      <p>CODIGO : <i class="text-danger" id="codcaracter"></i></p>
+                    </div>
+                    <div class="mb-1 col-md-6">
+                      <p>Nº <i id="numini"></i></p>
+                    </div>
+
+                    
+                    <hr>
+
+                    <div class="mb-3 col-md-6">
+
+              
+                        <input
+                          class="form-control"
+                          type="text"
+                          id="idclient"
+                          class="idclient"
+                          hidden    
+                        />
+
+                        <input
+                        class="form-control"
+                        type="text"
+                        id="caracteres"
+                        class="caracteres"
+                        hidden
+                      />
+
+                        <input
+                          class="form-control"
+                          type="text"
+                          id="codigoorden"
+                          class="codigoorden"
+                          hidden
+                        />
+
+                        <input
+                        class="form-control"
+                        type="text"
+                        id="numinit"
+                        class="numinit"
+                        hidden
+                      />
+
+                        <input
+                        class="form-control"
+                        type="text"
+                        id="numordenproduccion"
+                        hidden
+                      />
+                      <label class="form-label" for="cliente">Cliente</label>
+                 
+                    
+                      
+                      <input type="text" 
+                      class="form-control"
+                      style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-weight:bold;" 
+                      id="clienteForm"
+                      aria-label="Text input with dropdown button"
+                      readonly
+                      />
+                    </div> 
+
+                    
+                    <div class="mb-3 col-md-6">
+                      <label for="programadopor" class="form-label">Programado por</label>
+                     
+                      <input
+                      class="form-control"
+                      type="text"
+                      id="idUser"
+                      name="idUser"
+                      style="font-weight:bold;" 
+
+                      hidden
+                    />
+
+                      <input
+                        class="form-control"
+                        type="text"
+                        id="programado"
+                        name="programado"
+                        readonly
+                      />
+                    </div>
+
+                    <form id="form" action="#">
+                      <div class="row">
+                      <div class="mb-3 col-md-4">
+                           <input type="text" id="idProduct" class="idProduct" hidden>
+                          <label for="producto" class="form-label">Producto</label>
+                          <div class="input-group">
+                        
+                            <input
+                              type="text"
+                              class="form-control producto"
+                              style="font-weight:bold;" 
+                              placeholder=""
+                              id="producto"
+                              readonly
+                            />
+                          </div>
+                        </div>
+
+                        <div class="mb-3 col-md-4">
+                          <label for="referencia" class="form-label">Referencia</label>
+                          <input
+                            class="form-control"
+                            type="text"
+                            style="font-weight:bold;" 
+                            id="reference"
+                            name="reference"
+                            placeholder="Reference"
+                            readonly
+                          />
+                        </div>
+
+                        <div class="mb-3 col-md-4">
+                          <label for="cantidad" class="form-label">Cantidad</label>
+                          <input
+                            class="form-control"
+                            type="number"
+                            id="cantidad"
+                            name="cantidad"
+                            autofocus
+                          />
+                        </div>
+
+                        <div class="mb-3 col-md-6 mb-2 d-none">
+                          <label for="molde" class="form-label">Fabrica molde?</label>
+                          <select id="molde" class="form-select">
+                            <option value="NO">NO</option>
+                            <option value="SI">SI</option>  
+                          </select>
+                        </div>  
+                       
+
+                       
+                    <input type="text" id="uso" hidden>
+               
+          
+                 <div class="mb-3 col-md-6 d-none">
+                     <label for="fechaentrega" class="form-label">Fecha entrega(requerida)</label>
+                      <input class="form-control" type="date"  id="fechaentrega" required/>
+                        </div>
+
+                        <div class="mb-3 col-md-12">
+                          <label for="observacion" class="form-label">Observacion</label>
+                          <textarea class="form-control" id="observacion"></textarea>
+                        </div>
+
+                      </div>
+                    </form>
+
+
+                    <hr>
+
+          
+                  <div class="mt-2">
+                    <button 
+                     type="submit" 
+                     id="btnRegister" 
+                     class="btn btn-primary me-2 shadow-lg">
+                     Enviar
+
+                     <i class='bx bxs-send bx-sm'></i>
+                    </button>
+
+                    <a 
+                     href="pages-planilla-jefe-aisladores.html"
+                     id="btnCancelar" 
+                     class="btn btn-outline-secondary shadow-lg">
+                     Cancelar
+                     <i class='bx bxs-x-circle bx-sm'></i>
+                  </a>
+
+                  </div>
+                </form>
+              </div>
+              <!-- /Account -->
+
+     <!-- Modal Editar detalle de orden - Producto/Servicio etc.. -->
+    <div class="modal fade" id="modalEditProduct" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+           <div class="modal-header">
+              <h5 class="modal-title" id="modalScrollableTitle">EDITAR PRODUCTO DE ORDEN</h5>
+
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <hr>
+
+                <div class="modal-body">
+                  <form id="form" action="#">
+                    <div class="row">
+                    <div class="mb-3 col-md-6">
+                         <input type="text" id="eidProduct" class="eidProduct" hidden>
+                        <label for="producto" class="form-label">Producto</label>
+                        <div class="input-group">
+                          <button class="btn btn-outline-primary" type="button" id="searchProduct" 
+                          data-bs-toggle="modal"
+                          data-bs-target="#modalSearchArticle"
+                          > Buscar</button>
+                          <input
+                            type="text"
+                            class="form-control producto"
+                            placeholder=""
+                            id="eproducto"
+                            required
+                          />
+                        </div>
+                      </div>
+
+                      <div class="mb-3 col-md-6">
+                        <label for="referencia" class="form-label">Referencia</label>
+                        <input
+                          class="form-control"
+                          type="text"
+                          id="ereference"
+                          placeholder="Reference"
+                        
+                        />
+                      </div>
+
+                      <div class="mb-3 col-md-6">
+                        <label for="dato" class="form-label">Cantidad</label>
+                        <input
+                          class="form-control"
+                          type="number"
+                          id="ecantidad"
+                          value="1"
+                          placeholder="1"
+                          required
+                        />
+                      </div>
+
+                      <div class="mb-3 col-md-6 mb-2">
+                        <label for="emolde" class="form-label">Fabrica molde?</label>
+                        <select id="emolde" class="form-select" required>
+                          <option value="NO">NO</option>
+                          <option value="SI">SI</option>
+                        </select>
+                      </div>  
+                     
+
+                  
+                      <div class="mb-3 col-md-6 mb-2">
+                        <label for="euso" class="form-label">Uso</label>
+                        <select id="euso" class="form-select">
+                          <option value="INT">INTERNO</option>
+                          <option value="EXT">EXTERNO</option>
+                        
+                        </select>
+                      </div>  
+
+                      <div class="mb-3 col-md-6">
+                        <label for="fechaentrega" class="form-label">Fecha entrega(requerida)</label>
+                          <input class="form-control" type="date"  id="efechaentrega" />
+                      </div>
+
+                      
+                      <div class="mb-3 col-md-6">
+                        <label for="observacion" class="form-label">Observacion</label>
+                        <textarea
+                          class="form-control"
+                          id="eobservacion"           
+                        ></textarea>
+                      </div>
+                    </div>
+                  </form>            
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary btnModificar" data-bs-dismiss="modal">
+                    Guardar cambios
+                  </button>
+
+                  <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                    Cerrar
+                  </button>
+                </div>
+              </div>
+            </div>
+      </div>
+
+
+     <!-- Modal agregar detalle de orden - Producto/Servicio etc.. -->
+     <div class="modal fade" id="modalScrollable" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <h5 class="modal-title" id="modalScrollableTitle">AGREGAR PRODUCTO</h5>
+
+                            <button
+                              type="button"
+                              class="btn-close"
+                              data-bs-dismiss="modal"
+                              aria-label="Close"
+                            ></button>
+                          </div>
+                          <hr>
+
+                          <div class="modal-body">
+        
+                                <button type="submit" class="btn btn-primary btn-other" data-bs-dismiss="modal"
+                                aria-label="Close">Enviar</button>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                              Cerrar
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+       </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- / Content -->
+
+      <!-- Footer -->
+     
+
+      <div class="content-backdrop fade"></div>
+    </div>
+    <!-- Content wrapper -->
+  </div>
+ 
+            <div class="content-backdrop fade"></div>
+          </div>
+          <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+      </div>
+    </div>
+    <!-- / Layout wrapper -->
+
+
+
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <script src="../assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+
+    <script src="./js/Controllers/ordenproduccionjefeplanta/ordenProduccionControles.js"></script>
+    <!-- Main JS -->
+    <script src="../assets/js/main.js"></script>
+
+   
+  </body>
+</html>

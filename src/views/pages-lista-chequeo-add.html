@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+
+<html
+  lang="en"
+  class="light-style layout-menu-fixed"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="../assets/"
+  data-template="vertical-menu-template-free"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+
+    <title>Matrimol SAS | Lista de chequeo</title>
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+    <!-- Icons. Uncomment required icon fonts -->
+    <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="../assets/css/demo.css" />
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <script src="../assets/vendor/js/helpers.js"></script>
+    <script src="../assets/js/config.js"></script>
+  </head>
+  <body>
+    <!-- Layout wrapper -->
+    <div class="content-wrapper">
+      <!-- Content -->
+      <div class="container-xxl flex-grow-1 container-p-y">
+       <a href="tables-notas-entrega.html" class="btn btn-danger" id="btnvolver"><i class='bx bxs-caret-left-circle bx-burst-hover bx-md'></i>Atras</a> 
+       <hr>
+       <h4 class="fw-bold py-3 mb-4">LISTA DE CHEQUEO - NUEVA</h4>
+        <!--PENDIENTE POR ALINEAR ROW NO FUNCIONA-->
+        <div class="row">
+        </div>
+        <div class="row">
+          <div class="col-md-12">   
+            <div class="card mb-4">
+              <!-- Account -->
+              <hr class="my-0" />
+              <div class="card-body">
+                  <div class="col-md-12">   
+                    <div class="card mb-4">
+                      <div class="card-body">
+                        <form id="formAccountSettings" action="#">
+                              <div class="col-md-12 col-12 mb-md-0 mb-4">
+                                <h5 class="bg-black text-white p-3" style="border-left: 10px solid yellow;">DATOS PARTICULARES DEL CLIENTE PARA EL PERIODO</h5>
+                                  
+                                    <div class="d-flex mb-3">
+                                      <div class="flex-grow-1 row">
+                                        <div class="col-9 mb-sm-0 mb-2">
+                                          <h6 class="mb-0">Nombre de la persona que compra</h6>
+                                        </div>
+                                        <div class="col-3">
+                                          <div >
+                                            <input class="form-control" type="text"/>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="d-flex mb-3">
+                                    
+                                      <div class="flex-grow-1 row">
+                                        <div class="col-4 mb-sm-0 mb-2">
+                                          <h6 class="mb-0">Direccion/Ciudad entrega de la factura</h6>
+                                        </div>
+                                        <div class="col-8">
+                                          <div >
+                                            <input class="form-control" type="text"/>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="d-flex mb-3">
+                                      
+                                      <div class="flex-grow-1 row">
+                                        <div class="col-4 mb-sm-0 mb-2">
+                                          <h6 class="mb-0">Direccion/Ciudad entrega de mercancia</h6>
+                                        </div>
+                                        <div class="col-8">
+                                          <div >
+                                            <input class="form-control" type="text"/>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                     <!--Requiere Inspeccion cliente-->
+                                    <div class="d-flex mb-3">
+                                      <div class="flex-grow-1 row">
+                                        <div class="col-9 mb-sm-0 mb-2">
+                                          <h6 class="mb-0">Requiere inspeccion del cliente?</h6>
+                                        </div>
+                                        <div class="col-3 text-end">
+                                          <div class="form-check form-switch">
+                                            <input class="form-check-input float-end" type="checkbox" id='reqinscliente' role="switch" checked />
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                    
+                                    <!--Requiere pruebas-->
+                                    <div class="d-flex mb-3">
+                                      <div class="flex-grow-1 row justify-content-between">
+                                        <div class="col-3 mb-sm-0 mb-2">
+                                          <h6 class="mb-0 texto">Requiere pruebas?</h6>
+                                        </div>
+                                        <div class="col-9 text-end row input">
+                                          <div class="col-7 offset-md-4"><input type="text" class="form-control"></div>
+                                          <div class="form-check form-switch col-md-1">
+                                            <input class="form-check-input text-danger float-end" id='reqpruebas' type="checkbox" role="switch" checked />
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="d-flex mb-3">
+                                      <div class="flex-grow-1 row justify-content-between">
+                                        <div class="col-3 mb-sm-0 mb-2">
+                                          <h6 class="mb-0 texto">Condiciones legales o reglamentarias que aplican</h6>
+                                        </div>
+                                        <div class="col-9 text-end row input">
+                                          <div class="col-7 offset-md-4"><input type="text" class="form-control"></div>
+                                          <div class="form-check form-switch col-md-1">
+                                            <input class="form-check-input text-danger float-end" id='condicioneslegregla' type="checkbox" role="switch" checked />
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+
+          
+                                    <h5 class="bg-black text-white p-3" style="border-left: 10px solid yellow;">FORMA DE PAGO</h5>
+            
+                         
+                                 <!--Anticipo del-->
+                                    <div class="d-flex mb-3">                     
+                                      <div class="flex-grow-1 row">
+                                        <div class="col-md-9 mb-2 d-flex">
+                                          <h6 class="mb-0" style="margin-right: 10px; margin-top: 6px;">Anticipo del</h6>
+                                          <div class="col-md-1"><input type="text" style="border:none; border-bottom: 1px solid blue;" id="inputAnticipo"> </div>
+
+                                        </div>
+
+                                        <div class="col-3 text-end">
+                                          <div class="form-check form-switch">
+                                            <input class="form-check-input float-end" id="anticipodel" type="checkbox" role="switch" checked />
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+            
+            <!--Saldo al aununcio del material-->
+                                    <div class="d-flex mb-3">
+                                   
+                                      <div class="flex-grow-1 row">
+                                        <div class="col-9 mb-sm-0 mb-2">
+                                          <h6 class="mb-0">100% o saldo al anuncio del material para despacho</h6>
+                                        </div>
+                                        <div class="col-3 text-end">
+                                          <div class="form-check form-switch">
+                                            <input class="form-check-input float-end" id="saldoalanunciomaterialdespacho" type="checkbox" role="switch" checked />
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+            
+            <!--Saldo aal recibo del material-->
+                                    <div class="d-flex mb-3">
+                                   
+                                      <div class="flex-grow-1 row">
+                                        <div class="col-9 mb-sm-0 mb-2">
+                                          <h6 class="mb-0">100% o saldo al recibo del material</h6>
+                                        </div>
+                                        <div class="col-3 text-end">
+                                          <div class="form-check form-switch">
+                                            <input class="form-check-input float-end" id="saldoalrecibomaterial" type="checkbox" role="switch" checked />
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+            
+            <!--Saldo al recibo de la factura-->
+                                    <div class="d-flex mb-3">
+                                   
+                                      <div class="flex-grow-1 row">
+                                        <div class="col-9 mb-sm-0 mb-2">
+                                          <h6 class="mb-0">100% o saldo al recibo de la factura</h6>
+                                        </div>
+                                        <div class="col-3 text-end">
+                                          <div class="form-check form-switch">
+                                            <input class="form-check-input float-end" id="saldoalrecibofactura" type="checkbox" role="switch" checked />
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+            
+            <!--Saldo a los dias radicada la factura-->
+                                    <div class="d-flex mb-3">
+                                   
+                                      <div class="flex-grow-1 row">
+                                        <div class="col-9 mb-sm-0 mb-2">
+                                          <h6 class="mb-0">Saldo a los<input type="text" id='inputdiasradicadafactura' style="margin-left: 4px; margin-right: 4px; border:none; border-bottom: 2px solid blue; width: 50px; text-align: center;">dias de radicada la factura</h6>
+                                        </div>
+                                        <div class="col-3 text-end">
+                                          <div class="form-check form-switch">
+                                            <input class="form-check-input float-end" id="saldoalosdiasradicada" type="checkbox" role="switch" checked />
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+            
+            <!--Credito a los dias de radicada la factura-->
+                                    <div class="d-flex mb-3">
+                                   
+                                      <div class="flex-grow-1 row">
+                                        <div class="col-9 mb-sm-0 mb-2">
+                                          <h6 class="mb-0">Credito a <input type="text" id="inputcreditoalosdias" style="text-align: center; margin-left: 6px; margin-right: 6px; border: none; border-bottom: 2px solid blue; width: 50px;">dias de radicada la factura</h6>
+                                        </div>
+                                        <div class="col-3 text-end">
+                                          <div class="form-check form-switch">
+                                            <input class="form-check-input float-end" id="creditoalosdias" type="checkbox" role="switch" checked />
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+            
+               
+                                    <h5 class="bg-black text-white p-3" style="border-left: 10px solid yellow;">CONDICIONES DE DESPACHO</h5>
+            <!--Acepta entregas parciales-->
+                                    <div class="d-flex mb-3">
+                                      <div class="flex-grow-1 row">
+                                        <div class="col-9 mb-sm-0 mb-2">
+                                          <h6 class="mb-0">Acepta entregas parciales</h6>
+                                        </div>
+                                        <div class="col-3 text-end">
+                                          <div class="form-check form-switch">
+                                            <input class="form-check-input float-end" id="aceptaentregasparciales" type="checkbox" role="switch" checked />
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+            <!--Acepta facturacion parcial-->
+                                    <div class="d-flex mb-3">                                 
+                                    <div class="flex-grow-1 row">
+                                        <div class="col-9 mb-sm-0 mb-2">
+                                          <h6 class="mb-0">Acepta facturacion parcial</h6>
+                                        </div>
+                                        <div class="col-3 text-end">
+                                          <div class="form-check form-switch">
+                                            <input class="form-check-input float-end" id="aceptafacturacionparcial" type="checkbox" role="switch" checked />
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+            <!--Poliza de cumplimiento de contrato-->
+                                    <div class="d-flex mb-3">                                
+                                      <div class="flex-grow-1 row">
+                                        <div class="col-9 mb-sm-0 mb-2">
+                                          <h6 class="mb-0">Poliza de cumplimiento de contrato</h6>
+                                        </div>
+                                        <div class="col-3 text-end">
+                                          <div class="form-check form-switch">
+                                            <input class="form-check-input float-end" id="polizadecumplimientocontrato" type="checkbox" role="switch" checked />
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+            <!--Poliza de buen manejo de anticipo-->
+                                    <div class="d-flex mb-3">                                   
+                                      <div class="flex-grow-1 row">
+                                        <div class="col-9 mb-sm-0 mb-2">
+                                          <h6 class="mb-0">Poliza de buen manejo de anticipo</h6>
+                                        </div>
+                                        <div class="col-3 text-end">
+                                          <div class="form-check form-switch">
+                                            <input class="form-check-input float-end" id="polizadebuenmanejoanticipo" type="checkbox" role="switch" checked />
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+            <!--Poliza de garantia de materiales-->
+                                    <div class="d-flex mb-3">                                  
+                                      <div class="flex-grow-1 row">
+                                        <div class="col-9 mb-sm-0 mb-2">
+                                          <h6 class="mb-0">Poliza de garantia de materiales</h6>
+                                        </div>
+                                        <div class="col-3 text-end">
+                                          <div class="form-check form-switch">
+                                            <input class="form-check-input float-end" id="polizagarantiamateriales" type="checkbox" role="switch" checked />
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+            <!--Poliza cargo cliente-->
+                                    <div class="d-flex mb-3">                               
+                                      <div class="flex-grow-1 row">
+                                        <div class="col-9 mb-sm-0 mb-2">
+                                          <h6 class="mb-0">Poliza a cargo del cliente</h6>
+                                        </div>
+                                        <div class="col-3 text-end">
+                                          <div class="form-check form-switch">
+                                            <input class="form-check-input float-end" id="polizacargocliente" type="checkbox" role="switch" checked />
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+            <!--Cobrar fletes y seguro en la factura-->
+                                    <div class="d-flex mb-3">                               
+                                     <div class="flex-grow-1 row">
+                                        <div class="col-9 mb-sm-0 mb-2">
+                                          <h6 class="mb-0">Cobrar fletes y seguro en la factura</h6>
+                                        </div>
+                                        <div class="col-3 text-end">
+                                          <div class="form-check form-switch">
+                                            <input class="form-check-input float-end" id='cobrarfleteseguro' type="checkbox" role="switch" checked />
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+            <!--Despacho con flete al cobro-->
+                                    <div class="d-flex mb-3">                                 
+                                      <div class="flex-grow-1 row">
+                                        <div class="col-9 mb-sm-0 mb-2">
+                                          <h6 class="mb-0">Despacho con flete al cobro</h6>
+                                        </div>
+                                        <div class="col-3 text-end">
+                                          <div class="form-check form-switch">
+                                            <input class="form-check-input float-end" id="despachoconfletealcobro" type="checkbox" role="switch" checked />
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+            
+                                    <h5 class="bg-black text-white p-3" style="border-left: 10px solid yellow;">INFORMACION TECNICA REQUERIDA</h5>
+            
+                              
+            <!--Incluye producto suministrado por el cliente-->
+                                    <div class="d-flex mb-3">                                  
+                                      <div class="flex-grow-1 row">
+                                        <div class="col-9 mb-sm-0 mb-2">
+                                          <h6 class="mb-0">Incluye producto suministrado por el cliente?</h6>
+                                        </div>
+                                        <div class="col-3 text-end">
+                                          <div class="form-check form-switch">
+                                            <input class="form-check-input float-end" id='incluyesuministradocliente' type="checkbox" role="switch" checked />
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+            <!--Anexa planos-->
+                                    <div class="d-flex mb-3">
+                                      <div class="flex-grow-1 row">
+                                        <div class="col-9 mb-sm-0 mb-2">
+                                          <h6 class="mb-0">Anexa planos?</h6>
+                                        </div>
+                                        <div class="col-3 text-end">
+                                          <div class="form-check form-switch">
+                                            <input class="form-check-input float-end" id="anexaplanos" type="checkbox" role="switch" checked />
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+            <!--Planos pendientes por anexar-->
+                                    <div class="d-flex mb-3">                                
+                                      <div class="flex-grow-1 row">
+                                        <div class="col-9 mb-sm-0 mb-2">
+                                          <h6 class="mb-0">Planos pendientes por anexar?</h6>
+                                        </div>
+                                        <div class="col-3 text-end">
+                                          <div class="form-check form-switch">
+                                            <input class="form-check-input float-end" id="planospendientesporanexar" type="checkbox" role="switch" checked />
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+            <!--Requiere documentacion adicional-->
+                                    <div class="d-flex mb-3">                                 
+                                      <div class="flex-grow-1 row">
+                                        <div class="col-9 mb-sm-0 mb-2">
+                                          <h6 class="mb-0">Requiere documentacion adicional?</h6>
+                                        </div>
+                                        <div class="col-3 text-end">
+                                          <div class="form-check form-switch">
+                                            <input class="form-check-input float-end" id="requiredocumentacionadicional" type="checkbox" role="switch" checked />
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                              </div>
+                            
+                          </div>
+                          <button class="btn btn-primary col-md-1" id='buttonEnviar'>Enviar</button>
+                        </form>
+                      </div>                       
+                    </div>
+                  
+              </div>
+              <!-- /Account -->
+
+     <!-- Modal Editar detalle de orden - Producto/Servicio etc.. -->
+ <div class="modal fade" id="modalScrollableEdit" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+           <div class="modal-header">
+              <h5 class="modal-title" id="modalScrollableTitle">AGREGAR PRODUCTO</h5>
+
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <hr>
+
+                <div class="modal-body">
+                  <form id="form" action="#">
+                    <div class="row">                                
+                      <input type="text" id="eiddetallesOrdenProduccion"></input>
+                      
+                      <div class="mb-3 col-md-6">
+                        <label for="eproducto" class="form-label">Producto</label>
+                        <input
+                          class="form-control"
+                          type="text"
+                          id="eproducto"
+                          readonly
+                        />
+                      </div>
+                  
+                      <div class="mb-3 col-md-6">
+                        <label for="ereferencia" class="form-label">Referencia</label>
+                        <input
+                          class="form-control"
+                          type="text"
+                          id="ereferencia"
+                          readonly
+                        />
+                      </div>
+
+                      <div class="mb-3 col-md-6">
+                        <label for="ecantidadpendiente" class="form-label">Cantidad pendiente por entregar</label>
+                        <input
+                          class="form-control"
+                          type="number"
+                          id="ecantidadpendiente"
+                          readonly
+                        />
+                      </div>
+
+                   
+                      <div class="mb-3 col-md-6">
+                        <label for="ecantidadentregar" class="form-label">Cantidad a entregar</label>
+                        <input
+                          class="form-control"
+                          type="number"
+                          id="ecantidadentregar"
+                          value="1"
+                          required
+                        />
+                      </div>
+
+
+                   
+                    </div>
+                  </form>
+                      <button type="submit" class="btn btn-primary btn-guardarcambios" data-bs-dismiss="modal">Guardar cambios</button>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                    Cerrar
+                  </button>
+                </div>
+              </div>
+            </div>
+</div>
+
+
+    
+
+
+    <!-- Modal agregar detalle de orden - Producto/Servicio etc.. -->
+  <div class="modal fade" id="modalScrollable" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <h5 class="modal-title" id="modalScrollableTitle">AGREGAR PRODUCTO</h5>
+
+                            <button
+                              type="button"
+                              class="btn-close"
+                              data-bs-dismiss="modal"
+                              aria-label="Close"
+                            ></button>
+                          </div>
+                          <hr>
+
+                          <div class="modal-body">
+                            <form id="form" action="#">
+                              <div class="row">                                
+                                <input type="text" id="iddetallesOrdenProduccion" hidden></input>
+                                
+                                <div class="mb-3 col-md-6">
+                                  <label for="producto" class="form-label">Producto</label>
+                                  <input
+                                    class="form-control"
+                                    type="text"
+                                    id="producto"
+                                    readonly
+                                  />
+                                </div>
+                            
+                                <div class="mb-3 col-md-6">
+                                  <label for="referencia" class="form-label">Referencia</label>
+                                  <input
+                                    class="form-control"
+                                    type="text"
+                                    id="referencia"
+                                    readonly
+                                  />
+                                </div>
+
+                                <div class="mb-3 col-md-6">
+                                  <label for="cantidadpendiente" class="form-label">Cantidad pendiente por entregar</label>
+                                  <input
+                                    class="form-control"
+                                    type="number"
+                                    id="cantidadpendiente"
+                                    readonly
+                                  />
+                                </div>
+
+                             
+                                <div class="mb-3 col-md-6">
+                                  <label for="cantidadentregar" class="form-label">Cantidad a entregar</label>
+                                  <input
+                                    class="form-control"
+                                    type="number"
+                                    id="cantidadentregar"
+                                    value="1"
+                                    required
+                                  />
+                                </div>
+
+        
+                             
+                              </div>
+                            </form>
+                                <button type="submit" class="btn btn-primary btn-submit" data-bs-dismiss="modal">Enviar</button>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                              Cerrar
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+       </div>
+
+ 
+            
+        <!--Modal Buscar orden de orden de produccion-->
+  <div class="modal fade" id="modalSearchOrdenProduccion" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable modal-lg " role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="modalScrollableTitle">BUSCAR ORDEN DE PRODUCCION</h5>
+
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+
+                            </div>
+                            <div class="modal-body">
+                              <div class="input-group input-group-merge">
+                                <span class="input-group-text" id="basic-addon-search31"><i class="bx bx-search"></i></span>
+                                <input
+                                  type="text"
+                                  id="searchclt"
+                                  class="form-control"
+                                  placeholder="Search..."
+                                  aria-label="Search..."
+                                  autofocus
+                                />
+                              </div>                            
+                              <hr>
+                              <div class="card">
+                                <div class="table-responsive text-nowrap">
+                                  <table class="table table-hover mi-tabla">
+                                    <thead>
+                                      <tr>
+                                        <th>Nº</th>
+                                        <th>CODIGO</th>
+                                        <th>CLIENTE</th>
+                                        <th>PEDIDO</th>
+                                        <th>PROGRAMADO POR</th>
+                                        <th>FECHA PROGRAMADA</th>
+                                        <th>EXPORT PAIS</th>
+                                        <th>ACCION</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody class="table-border-bottom-0" id="myOrdenModal">
+                                      
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                              
+                       
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                Atras
+                              </button> 
+                            </div>
+                          </div>
+                        </div>
+                     </div>
+
+
+           <!--Modal Buscar detalle de orden de produccion-->
+      <div class="modal fade" id="modalSearchdetalles" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg " role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modalScrollableTitle">BUSCAR PRODUCTOS EN LA ORDEN DE PRODUCCION</h5>
+
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+
+            </div>
+            <div class="modal-body">
+              <div class="input-group input-group-merge">
+                <span class="input-group-text" id="basic-addon-search31"><i class="bx bx-search"></i></span>
+                <input
+                  type="text"
+                  id="searchclt"
+                  class="form-control"
+                  placeholder="Search..."
+                  aria-label="Search..."
+                  autofocus
+                />
+              </div>                            
+              <hr>
+              <div class="card">
+                <div class="table-responsive text-nowrap">
+                  <table class="table table-hover mi-tabla">
+                    <thead>
+                      <tr>
+                        <th>Nº</th>
+                        <th>Referencia</th>
+                        <th>Producto</th>
+                        <th>Uso</th>
+                        <th>Cantidad pendiente</th>
+                        <th>Fecha Requerida</th>
+                        <th>FabricMolde</th>
+                        <th>ACCION</th>
+                      </tr>
+                    </thead>
+                    <tbody class="table-border-bottom-0" id="mydetalleorden">
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              
+       
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                Atras
+              </button> 
+            </div>
+          </div>
+        </div>
+     </div>
+                      
+    
+            </div>
+          </div>
+        </div>
+      </div>
+    <div class="content-backdrop fade"></div>
+  </div>
+<div class="content-backdrop fade"></div>
+        
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="./js/Controllers/listachequeo/panel-lista-chequeo-add.js"></script>
+    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="../assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+
+    <!-- Main JS -->
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

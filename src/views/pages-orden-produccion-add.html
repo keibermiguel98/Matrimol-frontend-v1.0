@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+
+<html
+  lang="en"
+  class="light-style layout-menu-fixed"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="../assets/"
+  data-template="vertical-menu-template-free"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+
+    <title>Matrimol SAS | FORMULARIO - ORDEN DE PRODUCCION</title>
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+
+
+
+    <!-- Icons. Uncomment required icon fonts -->
+    <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="../assets/css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <script src="../assets/vendor/js/helpers.js"></script>
+
+    <script src="../assets/js/config.js"></script>
+  </head>
+
+  <body>
+    <!-- Layout wrapper -->
+    <div class="content-wrapper">
+      <!-- Content -->
+      <div class="container-xxl flex-grow-1 container-p-y">
+       <button class="btn btn-danger" id="btnvolver"><i class='bx bxs-caret-left-circle bx-burst-hover bx-md'></i> Volver</button> 
+       <hr>
+       <h4 class="fw-bold py-3 mb-4">ORDEN DE PRODUCCION - NUEVA </h4>
+        <!--PENDIENTE POR ALINEAR ROW NO FUNCIONA-->
+        <div class="row">
+        
+        
+        </div>
+        <div class="row">
+          <div class="col-md-12">   
+            <div class="card mb-4">
+              <!-- Account -->
+              <hr class="my-0" />
+              <div class="card-body">
+                <form id="formAccountSettings" action="#">
+                  <div class="row">
+                    <div class="mb-1 col-md-6">
+                      <p>CODIGO : <i class="text-danger" id="codcaracter"></i></p>
+                    </div>
+                    <div class="mb-1 col-md-6">
+                      <p>NUMERO : <i id="numini"></i></p>
+                    </div>
+
+                    
+                    <hr>
+                 
+                    <div class="mb-3 col-md-6">
+
+              
+                        <input
+                          class="form-control"
+                          type="text"
+                          id="idclient"
+                          class="idclient"
+                          placeholder="idCliente"
+                          hidden    
+                        />
+
+                        <input
+                        class="form-control"
+                        type="text"
+                        id="caracteres"
+                        class="caracteres"
+                        placeholder="idCliente"
+                        hidden
+                      />
+
+                        <input
+                          class="form-control"
+                          type="text"
+                          id="codigoorden"
+                          class="codigoorden"
+                          placeholder="idCliente"
+                          hidden
+                        />
+
+                        <input
+                        class="form-control"
+                        type="text"
+                        id="numinit"
+                        class="numinit"
+                        placeholder="idCliente"
+                        hidden
+                      />
+
+                        <input
+                        class="form-control"
+                        type="text"
+                        id="numordenproduccion"
+                        class="numordenproduccion"
+                        placeholder="idCliente"
+                        hidden
+                      />
+                      <label class="form-label" for="cliente">Cliente</label>
+                      <div class="input-group">
+                      <button
+                        class="btn btn-outline-primary"
+                        type="button"
+                        data-bs-toggle="modal"
+                        data-bs-target="#modalSearchClient"
+                      >
+                        Buscar
+                      </button>
+                    
+                      
+                      <input type="text" 
+                      class="form-control" 
+                      id="clienteForm"
+                      aria-label="Text input with dropdown button"
+                      readonly
+                      />
+                      <!--Trabajando en buscador -->
+                      <div class="row col-md-12 text-center d-none">
+                        <li>Numero</li>
+                        <li>Numero</li>
+                        <li>Numero</li>
+                        <li>Numero</li>
+                        <li>Numero</li>
+                        <li>Numero</li>
+                        <li>Numero</li>
+                        <li>Numero</li>
+                        <li>Numero</li>
+                        <li>Numero</li>
+
+                      </div>
+                    </div>
+                    </div> 
+
+                    
+                    <div class="mb-3 col-md-6">
+                      <label for="programadopor" class="form-label">Programado por</label>
+                     
+                      <input
+                      class="form-control"
+                      type="text"
+                      id="idUser"
+                      name="idUser"
+                      hidden
+                    />
+
+                      <input
+                        class="form-control"
+                        type="text"
+                        id="programado"
+                        name="programado"
+                        readonly
+                      />
+                    </div>
+
+                    <div class="mb-3 col-md-6 mb-2">
+                      <label for="exportpais" class="form-label">Exportacion pais</label>
+                      <select id="exportpais" class="form-select">
+                        <option value="NO">NO</option>
+                        <option value="SI">SI</option>
+                      
+                      </select>
+                    </div>  
+
+                    <div class="mb-3 col-md-6 d-none">
+                      <label for="dato" class="form-label">Revision</label>
+                      <input
+                        class="form-control"
+                        type="text"
+                        id="revision"
+                        placeholder="Numero de revision"
+                        readonly
+                      />
+                    </div>
+
+                    <div class="mb-3 col-md-6">
+                      <label for="dato" class="form-label">Numero pedido</label>
+                      <input
+                        class="form-control"
+                        type="text"
+                        id="numpedido"
+                        name="numpedido"
+                        placeholder="Numero pedido"
+                    
+                      />
+                    </div>
+
+
+                    <div class="mb-3 col-md-6">
+                      <label for="fechaProgramada" class="form-label">Fecha de entrega programada</label>
+                        <input class="form-control" type="date" id="fechaprogramada" />
+                    </div>
+
+                    <div class="mb-3 col-md-6">
+                      <label for="propiedadCliente" class="form-label">Propiedad cliente</label>
+                        <input class="form-control" type="text" id="propiedadCliente" placeholder='Propiedad cliente' />
+                    </div>
+
+                    <hr>
+
+                  <div class="card mb-4">
+                      <!--Button Agregar producto-->
+                      <div>  
+                      <a
+                       href="#"
+                       class="btn btn-success mt-2 mb-2 shadow-lg"
+                       id="btnAdd"
+                       data-bs-toggle="modal"
+                       data-bs-target="#modalScrollable"
+                       onclick="adicionarProducto()"
+                       >
+                       <i class='bx bxs-plus-circle bx-sm bx-tada' ></i>
+                       Adicionar producto</a>
+                      </div> 
+
+                      
+
+                      <div class="table-responsive text-nowrap">
+                        <table class="table table-hover">
+                          <thead class="bg-black">
+                            <tr>
+                              <th class="text-white">Item</th>
+                              <th class="text-white">Referencia</th>
+                              <th class="text-white">Descripcion</th>
+                              <th class="text-white">Uso</th>
+                              <th class="text-white">Cantidad</th>
+                              <th class="text-white">Actions</th>
+                            </tr>
+                          </thead>
+                          <tbody class="table-border-bottom-0" id="myOrdenProduccion">
+                            
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+
+                  <hr>
+
+                  <div class="mt-2">
+                    <button 
+                     type="submit" 
+                     id="btnRegister" 
+                     class="btn btn-primary me-2 shadow-lg">
+                     Enviar
+                    </button>
+
+                    <button 
+                     type="reset" 
+                     id="btnCancelar" 
+                     class="btn btn-outline-secondary shadow-lg">
+                     Cancelar
+                    </button>
+
+                  </div>
+                </form>
+              </div>
+              <!-- /Account -->
+
+     <!-- Modal Editar detalle de orden - Producto/Servicio etc.. -->
+    <div class="modal fade" id="modalEditProduct" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+           <div class="modal-header">
+              <h5 class="modal-title" id="modalScrollableTitle">EDITAR PRODUCTO DE ORDEN</h5>
+
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <hr>
+
+                <div class="modal-body">
+                  <form id="form" action="#">
+                    <div class="row">
+                    <div class="mb-3 col-md-6">
+                         <input type="text" id="eidProduct" class="eidProduct" hidden>
+                        <label for="producto" class="form-label">Producto</label>
+                        <div class="input-group">
+                          <button class="btn btn-outline-primary" type="button" id="searchProduct" 
+                          data-bs-toggle="modal"
+                          data-bs-target="#modalSearchArticle"
+                          > Buscar</button>
+                          <input
+                            type="text"
+                            class="form-control producto"
+                            placeholder=""
+                            id="eproducto"
+                            required
+                          />
+                        </div>
+                      </div>
+
+                      <div class="mb-3 col-md-6">
+                        <label for="referencia" class="form-label">Referencia</label>
+                        <input
+                          class="form-control"
+                          type="text"
+                          id="ereference"
+                          placeholder="Reference"
+                        
+                        />
+                      </div>
+
+                      <div class="mb-3 col-md-6">
+                        <label for="dato" class="form-label">Cantidad</label>
+                        <input
+                          class="form-control"
+                          type="number"
+                          id="ecantidad"
+                          value="1"
+                          placeholder="1"
+                          required
+                        />
+                      </div>
+
+                      <div class="mb-3 col-md-6 mb-2">
+                        <label for="emolde" class="form-label">Fabrica molde?</label>
+                        <select id="emolde" class="form-select" required>
+                          <option value="NO">NO</option>
+                          <option value="SI">SI</option>
+                        </select>
+                      </div>  
+                     
+
+                  
+                      <div class="mb-3 col-md-6 mb-2">
+                        <label for="euso" class="form-label">Uso</label>
+                        <select id="euso" class="form-select">
+                          <option value="INTERIOR">INTERNO</option>
+                          <option value="EXTERIOR">EXTERNO</option>
+                        
+                        </select>
+                      </div>  
+
+                      <div class="mb-3 col-md-6">
+                        <label for="fechaentrega" class="form-label">Fecha entrega(requerida)</label>
+                          <input class="form-control" type="date"  id="efechaentrega" />
+                      </div>
+
+                      
+                      <div class="mb-3 col-md-6">
+                        <label for="observacion" class="form-label">Observacion</label>
+                        <textarea
+                          class="form-control"
+                          id="eobservacion"           
+                        ></textarea>
+                      </div>
+                    </div>
+                  </form>            
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary btnModificar" data-bs-dismiss="modal">
+                    Guardar cambios
+                  </button>
+
+                  <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                    Cerrar
+                  </button>
+                </div>
+              </div>
+            </div>
+      </div>
+
+
+     <!-- Modal agregar detalle de orden - Producto/Servicio etc.. -->
+     <div class="modal fade" id="modalScrollable" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <h5 class="modal-title" id="modalScrollableTitle">AGREGAR PRODUCTO</h5>
+
+                            <button
+                              type="button"
+                              class="btn-close"
+                              data-bs-dismiss="modal"
+                              aria-label="Close"
+                            ></button>
+                          </div>
+                          <hr>
+
+                          <div class="modal-body">
+                            <form id="form" action="#">
+                              <div class="row">
+                              <div class="mb-3 col-md-6">
+                                   <input type="text" id="idProduct" class="idProduct" hidden>
+                                  <label for="producto" class="form-label">Producto</label>
+                                  <div class="input-group">
+                                    <button class="btn btn-outline-primary" type="button" id="searchProduct" 
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#modalSearchArticle"
+                                    > Buscar</button>
+                                    <input
+                                      type="text"
+                                      class="form-control producto"
+                                      placeholder=""
+                                      id="producto"
+                                      readonly
+                                    />
+                                    <span class="text-danger d-none" id="messageproducto">Por favor adicione un producto!</span>
+                                  </div>
+                                </div>
+
+                                <div class="mb-3 col-md-6">
+                                  <label for="referencia" class="form-label">Referencia</label>
+                                  <input
+                                    class="form-control"
+                                    type="text"
+                                    id="reference"
+                                    name="reference"
+                                    placeholder="Reference"
+                                    readonly
+                                  />
+                                </div>
+
+                                <div class="mb-3 col-md-6">
+                                  <label for="cantidad" class="form-label">Cantidad</label>
+                                  <input
+                                    class="form-control"
+                                    type="number"
+                                    id="cantidad"
+                                    value="1"
+                                    name="cantidad"
+                                    placeholder="0"
+                                    required
+                                  />
+                                </div>
+
+                                <div class="mb-3 col-md-6 mb-2">
+                                  <label for="molde" class="form-label">Fabrica molde?</label>
+                                  <select id="molde" class="form-select" required>
+                                    <option value="NO">NO</option>
+                                    <option value="SI">SI</option>  
+                                  </select>
+                                </div>  
+                               
+
+                               
+                          <div class="mb-3 col-md-6 mb-2">
+                          <label for="uso" class="form-label">Uso</label>
+                           <select id="uso" class="form-select">
+                            <option value="INTERIOR">INTERIOR</option>
+                             <option value="EXTERIOR">EXTERIOR</option>
+                          </select>
+                         </div>  
+                  
+                         <div class="mb-3 col-md-6">
+                             <label for="fechaentrega" class="form-label">Fecha entrega(requerida)</label>
+                              <input class="form-control" type="date"  id="fechaentrega" required/>
+                                </div>
+
+                                <div class="mb-3 col-md-6">
+                                  <label for="observacion" class="form-label">Observacion</label>
+                                  <textarea class="form-control" id="observacion"></textarea>
+                                </div>
+
+                              </div>
+                            </form>
+                                <button type="submit" class="btn btn-primary btn-other" data-bs-dismiss="modal"
+                                aria-label="Close">Enviar</button>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                              Cerrar
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+       </div>
+
+       <!--Modal agregar Cliente-->
+      <div class="modal fade" id="modalAddClient" tabindex="-1" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-scrollable" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="modalScrollableTitle">AGREGAR CLIENTE</h5>
+                            <button
+                              type="button"
+                              class="btn-close"
+                              data-bs-dismiss="modal"
+                              aria-label="Close"
+                            ></button>
+                          </div>
+                          <div class="modal-body">
+                            <form id="formClient" action="#">
+                              <div class="row">
+
+                                <div class="mb-3 col-md-12">
+                                  <label class="form-label" for="key">Identificacion</label>
+                                  <div class="input-group">
+                                    <select class="form-select " required>
+                                      <option value="NIT">NIT</option>
+                                      <option value="CEDULA">CEDULA</option>>
+                                      <option value="PASAPORTE">PASAPORTE</option>
+                                    </select>
+                                
+                                  
+                                  <input type="text" 
+                                  class="form-control" 
+                                  id="cif"
+                                  aria-label="Text input with dropdown button" />
+                                </div>
+                                </div>
+                              
+                                <div class="mb-3 col-md-12">
+                                  <label for="nombre" class="form-label">Nombre</label>
+                                  <input
+                                    class="form-control"
+                                    type="text"
+                                    id="nombre"
+                                    name="nombre"
+                                    placeholder="Firstname"
+                                    autofocus
+                                    required
+                                  />
+                                </div>
+                       
+      
+                                <div class="mb-3 col-md-12">
+                                  <label for="movil" class="form-label">Movil</label>
+                                  <input
+                                    class="form-control"
+                                    type="text"
+                                    id="movil"
+                                    name="movil"
+                                    placeholder='Phone'
+                                    required
+                                  />
+                                </div>
+      
+                           
+      
+                                <div class="mb-3 col-md-12">
+                                  <label for="direccion" class="form-label">Direccion</label>
+                                  <textarea
+                                    style="height: 100px;"
+                                    class="form-control"
+                                    id="direccion"
+                                    placeholder="Av libertador, calle 9, carrera 55"
+                                  ></textarea>
+                                </div>
+                                
+                              </div>  
+                            </form>
+                          </div>
+                          <div class="modal-footer">
+                           
+                            <div class="mt-2 ">
+                              <button 
+                               type="submit" 
+                               id="btnGuardarModal" 
+                               class="btn btn-primary me-2"
+                               data-bs-dismiss="modal"
+                               aria-label="Close"
+                               >
+                               Agregar
+                              </button>
+    
+                              <button 
+                               type="reset" 
+                               id="btnCancelar" 
+                               class="btn btn-outline-secondary"
+                               data-bs-dismiss="modal"
+                               >
+                               
+                               Cancelar
+                              </button>
+    
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+       </div>
+            
+                      <!--Modal Buscar Clientes-->
+      <div class="modal fade" id="modalSearchClient" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable modal-fullscreen " role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="modalScrollableTitle">BUSCAR CLIENTE</h5>
+
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+
+                            </div>
+                            <div class="modal-body">
+                              <div class="input-group input-group-merge">
+                                <span class="input-group-text" id="basic-addon-search31"><i class="bx bx-search"></i></span>
+                                <input
+                                  type="text"
+                                  id="searchclt"
+                                  class="form-control"
+                                  placeholder="Search..."
+                                  aria-label="Search..."
+                                  autofocus
+                                />
+                              </div>                            
+                              <hr>
+                              <button class="btn btn-success col-md-3 mb-3 shadow-lg" data-bs-toggle="modal" data-bs-target="#modalAddClient">Nuevo cliente</button>
+                              <div class="card">
+                                <div class="table-responsive text-nowrap">
+                                  <table class="table table-hover mi-tabla">
+                                    <thead>
+                                      <tr>
+                                        <th>IDENTIFICACION</th>
+                                        <th>NOMBRE</th>
+                                        <th>ACCION</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody class="table-border-bottom-0" id="mysClientes">
+                                      
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                              
+                       
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                Atras
+                              </button>
+                  
+                            </div>
+                          </div>
+                        </div>
+        </div>
+                      
+                      <!--Modal Buscar productos-->
+       <div class="modal fade" id="modalSearchArticle" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable " role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="modalScrollableTitle">BUSCAR PRODUCTO</h5>
+
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+
+                            </div>
+                            <div class="modal-body">
+                              <div class="input-group input-group-merge">
+                                <span class="input-group-text" id="basic-addon-search31"><i class="bx bx-search"></i></span>
+                                <input
+                                  type="text"
+                                  id="searchproduct"
+                                  class="form-control"
+                                  placeholder="Search..."
+                                  aria-label="Search..."
+                                  aria-describedby="basic-addon-search31"
+                                />
+                              </div>
+                            
+                              <hr>
+                              
+
+                              <div class="card">
+                                <div class="table-responsive text-nowrap">
+                                  <table class="table table-hover">
+                                    <thead>
+                                      <tr>
+                                        <th>REFERENCIA</th>
+                                        <th>DESCRIPCION</th>
+                                        <th>UNIDAD</th>
+                                        <th>ACCION</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody class="table-border-bottom-0" id="mysArticles">
+                                      
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                              
+                       
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                Atras
+                              </button>
+                  
+                            </div>
+                          </div>
+                        </div>
+        
+                      </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- / Content -->
+
+      <!-- Footer -->
+     
+
+      <div class="content-backdrop fade"></div>
+    </div>
+    <!-- Content wrapper -->
+  </div>
+ 
+            <div class="content-backdrop fade"></div>
+          </div>
+          <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+      </div>
+    </div>
+    <!-- / Layout wrapper -->
+
+
+
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <script src="../assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+
+    <script src="./js/Controllers/ordenProduccion/ordenProduccion-add.js"></script>
+    <!-- Main JS -->
+    <script src="../assets/js/main.js"></script>
+
+    <!-- Page JS -->
+
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+  </body>
+</html>

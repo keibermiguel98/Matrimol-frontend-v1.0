@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<html
+  lang="en"
+  class="light-style layout-menu-fixed"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="../assets/"
+  data-template="vertical-menu-template-free">
+  
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
+
+    <title>Matrimol SAS | Tareas operadores</title>
+    
+    <meta name="description" content="" />
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+    <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
+
+    <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="../assets/css/demo.css" />
+
+    <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <script src="../assets/vendor/js/helpers.js"></script>
+    <script src="../assets/js/config.js"></script>
+  </head>
+
+  <body>
+     <div class="container-xxl flex-grow-1 container-p-y">
+      <a href="tasksOperadores.html" class="btn btn-danger" id="btnvolver"><i class='bx bxs-caret-left-circle bx-burst-hover bx-md'></i>Atras</a> 
+      <hr>  
+          
+
+
+      <div class="card mb-4 table-aislador d-none">
+        <h4 class="card-header">AISLADORES</h4>
+        <div class="card-body">
+          <div class="table-responsive text-nowrap">
+      <table class="table mb-4  table-bordered">
+        <thead class="bg-primary">
+          <tr>
+            <th scope="col" class="text-white">N</th>
+            <th scope="col" class="text-white">Referencia</th>
+            <th scope="col" class="text-white">uso</th>
+            <th scope="col" class="text-white">Maquinaria</th>
+            <th scope="col" class="text-white">Asignados</th>
+            <th scope="col" class="text-white">Fecha de asignacion</th>
+            <th scope="col" class="text-white">Accion</th>
+          </tr>
+        </thead>
+        <tbody  id="mytareasaisladores"></tbody>
+      </table>
+    </div>
+    </div>
+    </div>
+
+          <div class="card mb-4 table-bujes d-none">
+            <h4 class="card-header">BUJES</h4>
+            <div class="card-body">
+              <div class="table-responsive text-nowrap">
+          <table class="table mb-4  table-bordered">
+            <thead class="bg-success">
+              <tr>
+                <th scope="col" class="text-white">N</th>
+                <th scope="col" class="text-white">Referencia</q></th>
+                <th scope="col" class="text-white">Maquinaria</th>
+                <th scope="col" class="text-white">Asignados</th>
+                <th scope="col" class="text-white">Fecha de asignacion</th>
+                <th scope="col" class="text-white">Accion</th>
+              </tr>
+            </thead>
+            <tbody  id="mytareasbujes"></tbody>
+          </table>
+        </div>
+     </div>
+  </div>
+
+
+<!--Modal de mostrar la tarea de bujes-->
+  <div class="modal modal-top fade mt-3" id="modalTop" tabindex="-1">
+    <div class="modal-dialog">
+      <form class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalTopTitle">Detalles tarea</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col mb-3">
+              <label for="nameSlideTop" class="form-label">Referencia</label>
+              <input
+                type="text"
+                id="nameSlideTop"
+                class="form-control"
+                placeholder="Enter Name"
+              />
+            </div>
+
+            <div class="col mb-3">
+              <label for="nameSlideTop" class="form-label">Torno</label>
+              <input
+                type="text"
+                id="nameSlideTop"
+                class="form-control"
+                placeholder="Enter Name"
+              />
+            </div>
+          </div>
+          <div class="row g-2">
+            <div class="col mb-0">
+              <label for="emailSlideTop" class="form-label">TORNO</label>
+              <input
+                type="text"
+                id="emailSlideTop"
+                class="form-control"
+                placeholder="xxxx@xxx.xx"
+              />
+            </div>
+            <div class="col mb-0">
+              <label for="dobSlideTop" class="form-label">DOB</label>
+              <input
+                type="text"
+                id="dobSlideTop"
+                class="form-control"
+                placeholder="DD / MM / YY"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+            Close
+          </button>
+          <button type="button" class="btn btn-primary">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  
+
+<div class="card mb-4 table-pulido d-none">
+  <h4 class="card-header">PULIDO</h4>
+  <div class="card-body">
+    <div class="table-responsive text-nowrap">
+<table class="table mb-4  table-bordered">
+  <thead class="bg-warning">
+    <tr>
+      <th scope="col" class="text-white">N</th>
+      <th scope="col" class="text-white">Referencia</q></th>
+      <th scope="col" class="text-white">Maquinaria</th>
+      <th scope="col" class="text-white">Asignados</th>
+      <th scope="col" class="text-white">Fecha de asignacion</th>
+      <th scope="col" class="text-white">Accion</th>
+    </tr>
+  </thead>
+  <tbody  id="mytareaspulido"></tbody>
+</table>
+</div>
+</div>
+</div>
+        
+
+
+  <div class="layout-overlay layout-menu-toggle"></div>
+   </div>
+
+
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="../assets/vendor/js/menu.js"></script>
+    <script src="./js/Controllers/panelTareasBujesAisladores/panel-tareas-bujes-aisladores.js"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

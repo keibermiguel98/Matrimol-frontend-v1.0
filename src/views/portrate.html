@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .form{
+            background-color: gray;
+            opacity: 1;
+            filter: alpha(opacity=100);
+            zoom: 1;
+            padding: 100%;
+            position:absolute ;
+        }
+        .bold {
+          background-color: blue;
+          border-radius: 100rem;
+          padding: 40px;
+          display: inline-block;
+          position: absolute;
+          animation: dispersarInfinito 28s infinite;
+        }
+      
+        @keyframes dispersarInfinito {
+          0% {
+            left: 0;
+            top: 0;
+          }
+          100% {
+            left: calc(100vw * calc(random()));
+            top: calc(100vh * calc(random()));
+          }
+        }
+      </style>
+      
+      <div>
+        <div class="bold"></div>
+        <div class="bold"></div>
+        <div class="bold"></div>
+        <!-- Agrega más elementos "bold" aquí si es necesario -->
+      </div>
+
+      <div>
+        <div class="form"></div>
+      </div>
+
+
+</body>
+</html>

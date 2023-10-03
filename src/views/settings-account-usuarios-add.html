@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html
+  lang="en"
+  class="light-style layout-menu-fixed"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="../assets/"
+  data-template="vertical-menu-template-free"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+
+    <title>Matrimol SAS | usuarios</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+
+
+    <!-- Icons. Uncomment required icon fonts -->
+    <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="../assets/css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <!-- Helpers -->
+    <script src="../assets/vendor/js/helpers.js"></script>
+
+    
+    <script src="../assets/js/config.js"></script>
+  </head>
+
+  <body>
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <a href="tables-usuario.html" class="btn btn-danger">Atras</a>
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Maestros /</span> <span class="text-muted fw-light">Usuarios /</span> Formulario</h4>
+
+              <div class="row">
+                <div class="col-md-12">
+               
+                  <div class="card mb-4">
+                    <!-- Account -->
+                    <div class="card-body">
+                      <div class="d-flex align-items-start align-items-sm-center gap-4">
+                        <img
+                          src="../assets/img/avatars/1.png"
+                          alt="user-avatar"
+                          class="d-block rounded"
+                          height="100"
+                          width="100"
+                          id="uploadedAvatar"
+                        />
+                        <div class="button-wrapper">
+                          <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
+                            <span class="d-none d-sm-block">Subir nueva foto</span>
+                            <i class="bx bx-upload d-block d-sm-none"></i>
+                            <input
+                              type="file"
+                              id="upload"
+                              class="account-file-input"
+                              hidden
+                              accept="image/png, image/jpeg"
+                            />
+                          </label>
+                          <button type="button" class="btn btn-outline-secondary account-image-reset mb-4">
+                            <i class="bx bx-reset d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Reset</span>
+                          </button>
+
+                          <p class="text-muted mb-0">Imagen JPG o PNG. Max tamaño de 800K</p>
+                        </div>
+                      </div>
+                    </div>
+                    <hr class="my-0" />
+                    <div class="card-body">
+                      <form id="formAccountSettings" action="#">
+                        <div class="row">
+
+                          <div class="mb-3 col-md-4">
+                            <label class="form-label" for="key">Nit</label>
+                   
+                              <input
+                                class="form-control"
+                                type="text"
+                                id="identificacion"
+                                class="identificacion"
+                                placeholder="Identification"
+                              />
+                            <p id="validarIdentificacion" class="text-danger"></p>
+                          </div>
+                          <div class="mb-3 col-md-4">
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <input
+                              class="form-control"
+                              type="text"
+                              id="nombre"
+                              name="nombre"
+                              placeholder="Example: Miguel"
+                              autofocus
+                            />
+                            <p id="validarNombre" class="text-danger"></p>
+                          </div>
+                          <div class="mb-3 col-md-4">
+                            <label for="apellido" class="form-label">Apellido</label>
+                            <input class="form-control" 
+                            type="text"
+                            name="apellido"
+                            id="apellido" 
+                            placeholder="Example: Rodriguez"/>
+                            <p id="validarApellido" class="text-danger"></p>
+                          </div>
+
+                          <div class="mb-3 col-md-4">
+                            <label for="nombreusuario" class="form-label">Nombre de usuario</label>
+                            <input
+                              class="form-control"
+                              type="text"
+                              id="nombreusuario"
+                              name="nombreusuario"
+                              placeholder="miguelrojas@example.com"
+                            />
+                            <p id="validarNombreUsuario" class="text-danger"></p>
+                          </div>
+                        
+
+                          <div class="form-password-toggle  mb-3 col-md-4">
+                            <label class="form-label" for="contraseña">Contraseña</label>
+                            <div class="input-group">
+                              <input
+                                type="password"
+                                class="form-control"
+                                id="contrasena"
+                                placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                aria-describedby="basic-default-password2"
+                              />
+                              <span id="basic-default-password2" class="input-group-text cursor-pointer"
+                                ><i class="bx bx-hide"></i
+                              ></span>
+                            </div>
+                            <p id="validarPassword" class="text-danger"></p>
+                          </div>
+
+                               
+
+                          <div class="mb-3 col-md-4">
+                            <label for="rol" class="form-label">Roles</label>
+                            <select id="rol" class="form-select">
+                              <option>Seleccionar</option>
+                              <option value="Administrativo">Administrativo</option>
+                              <option value="Aux administrativo">Auxiliar administrativo</option>
+                              <option value="Jefe de Planta">Jefe de planta</option>
+                              <option value="Planta">Planta</option>
+                              <option value="Calidad">Calidad</option>
+                              <option value="Despachos">Despachos</option>
+
+                            </select>
+                            <p id="validarRoles" class="text-danger"></p>
+                          </div>
+
+                        
+
+                        <div class="mt-2">
+                          <button 
+                           type="submit" 
+                           id="btnGuardar" 
+                           class="btn btn-primary me-2">
+                           Enviar
+                          </button>
+
+                          <button 
+                           type="reset" 
+                           id="btnCancelar" 
+                           class="btn btn-outline-secondary">
+                           Cancelar
+                          </button>
+
+                        </div>
+                      </form>
+                    </div>
+                    <!-- /Account -->
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+           
+
+            <div class="content-backdrop fade"></div>
+          
+
+      <!-- Overlay -->
+      <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+    <!-- / Layout wrapper -->
+
+
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <script src="../assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+
+    <!-- Main JS -->
+    <script src="../assets/js/main.js"></script>
+    
+       <!--Controlador de datos JS -->
+       <script src="./js/Controllers/usuarios/account-users-add.js"></script>
+
+  </body>
+</html>

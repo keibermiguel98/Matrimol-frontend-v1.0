@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+
+<html
+  lang="en"
+  class="light-style layout-menu-fixed"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="../assets/"
+  data-template="vertical-menu-template-free"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+
+    <title>Matrimol SAS | Productos</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+
+
+    <!-- Icons. Uncomment required icon fonts -->
+    <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="../assets/css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <!-- Page CSS -->
+
+    <!-- Helpers -->
+    <script src="../assets/vendor/js/helpers.js"></script>
+
+    
+    <script src="../assets/js/config.js"></script>
+  </head>
+
+  <body>
+
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <a href="tables-productos.html" class="btn btn-danger" id="btnvolver"><i class='bx bxs-caret-left-circle bx-burst-hover bx-md'></i>Atras</a> 
+               <hr>
+              <h4 class="fw-bold py-3 mb-4">PRODUCTO</h4>
+              <hr>
+              <div class=" mb-1 p-2 rounded col-md-12">
+                <button class="shadow-lg btn btn-outline-primary active col-3" id="buttonUno">Producto</button>
+                <button class="shadow-lg btn btn-outline-primary col-3" id="buttonDos">Composicion</button>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+               
+                  <div class="card mb-4">
+                    <!-- Account -->
+                 
+                    <div class="card-body">
+                      <form id="formUno" action="#">
+                        <div class="row">
+                    
+                          <div class="mb-3 col-md-4">
+                            <label for="referencia" class="form-label">Referencia</label>
+                            <input
+                              class="form-control"
+                              type="text"
+                              id="referencia"
+                              name="referencia"
+                              placeholder="Reference"
+                              autofocus
+                            />
+                            <p id="validarReferencia" class="text-danger"></p>
+                          </div>
+
+                          <div class="mb-3 col-md-4">
+                            <label for="nombreArticulo" class="form-label">Nombre del articulo</label>
+                            <input class="form-control" 
+                            type="text"
+                            name="nombreArticulo"
+                            id="nombreArticulo" 
+                            placeholder="Article name"/>
+                            <p id="validarDescripcion" class="text-danger"></p>
+                          </div>
+                
+                          <div class="mb-3 col-md-4 mb-2">
+                            <label for="unidad" class="form-label">Unidad</label>
+                            <select id="unidad"  class="form-select">
+                              <option>---</option>
+                              <option value="Unidad">Unidad</option>
+                              <option value="Metros">Metros</option>
+                              <option value="Kilos">Kilos</option>
+                            </select>
+                            <p id="validarUnidad" class="text-danger"></p>
+                          </div>   
+                        </div>
+
+                        <div class="mt-2">
+                          <button 
+                           type="submit" 
+                           id="btnGuardar" 
+                           class="btn btn-primary me-2">
+                           Guardar cambios
+                          </button>
+
+                          <button 
+                           type="reset" 
+                           id="btnCancelar" 
+                           class="btn btn-outline-secondary">
+                           Cancelar
+                          </button>
+                        </div>
+                      </form>
+
+
+                      <form id="formDos" action="#" class="d-none">
+                        <div class="row">
+                          <div class=" row col-md-12 justify-content-center">
+                          <div class="mb-3 col-md-4">
+                            <label for="comreferencia" class="form-label">Referencia</label>
+                            <input
+                              class="form-control"
+                              type="text"
+                              id="comreferencia"
+                              placeholder="Reference"
+                              autofocus
+                              readonly
+                            />
+                          </div>
+
+                          <div class="mb-3 col-md-4">
+                            <label for="nombreArticulo" class="form-label">Nombre del articulo</label>
+                            <input class="form-control" 
+                            type="text"
+                            id="comnombreArticulo" 
+                            placeholder="Article name"
+                            readonly/>
+                          
+                          </div>
+                        </div>
+                          <hr>
+                          <div class="col-md-12">
+                            <a href="#" class="btn btn-success col-md-2 mb-4 mt-4 shadow-lg"  data-bs-toggle="modal"
+                            data-bs-target="#modalSearchComponente">Crear composicion</a>
+                          </div>
+
+                          <div class="card">
+                            <div class="table-responsive text-nowrap">
+                              <table class="table table-hover">
+                                <thead>
+                                  <tr>
+                                    <th>Nº</th>
+                                    <th>Componente</th>
+                                    <th>Referencia</th>
+                                    <th>Cantidad Componente</th>
+                                    <th>Tipo calculo</th>
+                                    <th>Actions</th>
+                                  </tr>
+                                </thead>
+                                <tbody class="table-border-bottom-0" id="mycomposicion">
+                                  <!--Aqui se renderizada la tabla llena en caso de tener datos-->
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="mt-2">
+                        <!--Bottones-->
+
+                          
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+
+
+    <!--Modal Buscar productos-->
+<div class="modal fade" id="modalSearchComponente" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-fullscreen" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modalScrollableTitle">BUSCAR COMPONENTE</h5>
+
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+
+            </div>
+            <div class="modal-body">
+              <div class="input-group input-group-merge">
+                <span class="input-group-text" id="basic-addon-search31"><i class="bx bx-search"></i></span>
+                <input
+                  type="text"
+                  id="inputsearch"
+                  class="form-control"
+                  placeholder="Search..."
+                  aria-label="Search..."
+                  aria-describedby="basic-addon-search31"
+                />
+              </div>
+            
+              <hr>
+              
+
+              <div class="card">
+                <div class="table-responsive text-nowrap" id="tableComun">
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th>Nº</th>
+                        <th>COMPONENTE</th>
+                        <th>REFERENCIA<!--  --></th>
+                        <th>PARAMETRO</th>
+                        <th>FECHA</th>
+                        <th>ACCION</th>
+                      </tr>
+                    </thead>
+                    <tbody class="table-border-bottom-0" id="mycomponentes">
+                      
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="table-responsive text-nowrap d-none" id="tableSearch">
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th>Nº</th>
+                        <th>COMPONENTE</th>
+                        <th>REFERENCIA<!--  --></th>
+                        <th>PARAMETRO</th>
+                        <th>FECHA</th>
+                        <th>ACCION</th>
+                      </tr>
+                    </thead>
+                    <tbody class="table-border-bottom-0" id="mycomponentessearch">
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              
+       
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                Atras
+              </button>
+  
+            </div>
+          </div>
+        </div>
+
+</div>
+
+   <!-- Modal agregar composicion - Producto/Servicio etc.. -->
+ <div class="modal fade" id="modalScrollable" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+           <div class="modal-header">
+              <h5 class="modal-title" id="modalScrollableTitle">AGREGAR COMPOSICION</h5>
+
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <hr>
+
+                <div class="modal-body">
+                  <form id="form" action="#">
+                    <div class="row">
+                      <div class="mb-3 col-md-4">
+                        <input type="text" id="idcomponente" hidden></input>
+                        <label for="referencia" class="form-label">COMPONENTE</label>
+                        <input
+                          class="form-control"
+                          type="text"
+                          id="componente"
+                          readonly
+                          
+                        />
+                      </div>
+
+                      <div class="mb-3 col-md-4">
+                        <label for="referencia" class="form-label">REFERENCIA</label>
+                        <input
+                          class="form-control"
+                          type="text"
+                          id="referenciacomponente"
+                          readonly
+                          
+                        />
+                      </div>
+
+                      <div class="mb-3 col-md-4">
+                        <label for="referencia" class="form-label">Cantidad composicion</label>
+                        <input
+                          class="form-control"
+                          type="number"
+                          id="cantidadComponente"
+                          value="1"
+                        />
+                      </div>                     
+                    </div>
+                  </form>
+
+                  <button type="submit" class="btn btn-primary btn-submit mt-4" data-bs-dismiss="modal" aria-label="Close">Enviar</button>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                    Cerrar
+                  </button>
+                </div>
+              </div>
+            </div>
+</div>
+
+         <!-- Modal editar composicion - Producto/Servicio etc.. -->
+         <div class="modal fade" id="modalEditarComposicion" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h5 class="modal-title" id="modalScrollableTitle">EDITAR COMPOSICION</h5>
+    
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <hr>
+    
+                    <div class="modal-body">
+                      <form id="form" action="#">
+                        <div class="row">
+                          <div class="mb-3 col-md-4">
+                            <input type="text" id="eidcomponente" hidden></input>
+                            <label for="ecomponente" class="form-label">COMPONENTE</label>
+                            <input
+                              class="form-control"
+                              type="text"
+                              id="ecomponente"
+                              readonly
+                              
+                            />
+                          </div>
+
+                          <div class="mb-3 col-md-4">
+                            <input type="text" id="eidcomponente" hidden></input>
+                            <label for="ecomponente" class="form-label">REFERENCIA</label>
+                            <input
+                              class="form-control"
+                              type="text"
+                              id="ereferencia"
+                              readonly
+                              
+                            />
+                          </div>
+    
+                          <div class="mb-3 col-md-4">
+                            <label for="ecantidadComponente" class="form-label">CANTIDAD</label>
+                            <input
+                              class="form-control"
+                              type="number"
+                              id="ecantidadComponente"
+                              value="1"
+                            />
+                          </div>                     
+                        </div>
+                      </form>
+    
+                      <button type="submit" class="btn btn-primary btn-editar mt-4" data-bs-dismiss="modal" aria-label="Close">Editar</button>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                        Cerrar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+    </div>
+              </div>
+            </div>
+          <div class="content-backdrop fade"></div>
+        </div>
+      </div>
+    </div>
+      <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <script src="../assets/vendor/js/menu.js"></script>
+
+    <script src="../assets/js/main.js"></script>
+    
+       <!--Controlador de datos JS -->
+     <script src="./js/Controllers/productos/productos.js"></script>
+
+  </body>
+</html>

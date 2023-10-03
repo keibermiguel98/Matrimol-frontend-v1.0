@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+
+<html
+  lang="en"
+  class="light-style layout-menu-fixed"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="../assets/"
+  data-template="vertical-menu-template-free"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+
+    <title>Matrimol SAS | Nota de entrega</title>
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+    <!-- Icons. Uncomment required icon fonts -->
+    <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="../assets/css/demo.css" />
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <script src="../assets/vendor/js/helpers.js"></script>
+    <script src="../assets/js/config.js"></script>
+  </head>
+  <body>
+    <!-- Layout wrapper -->
+    <div class="content-wrapper">
+      <!-- Content -->
+      <div class="container-xxl flex-grow-1 container-p-y">
+       <a href="tables-notas-entrega.html" class="btn btn-danger" id="btnvolver"><i class='bx bxs-caret-left-circle bx-burst-hover bx-md'></i>Atras</a> 
+       <hr>
+       <h4 class="fw-bold py-3 mb-4">NOTA DE ENTREGA</h4>
+        <!--PENDIENTE POR ALINEAR ROW NO FUNCIONA-->
+        <div class="row">
+        </div>
+        <div class="row">
+          <div class="col-md-12">   
+            <div class="card mb-4">
+              <!-- Account -->
+              <hr class="my-0" />
+              <div class="card-body">
+                <form id="formAccountSettings" action="#">
+                  <div class="row">
+                    <div class="mb-1 col-md-6">
+                      <p>CODIGO : <i class="text-danger" id="codcaracter"></i></p>
+                    </div>
+                    <div class="mb-1 col-md-6">
+                      <p>NUMERO : <i id="numini"></i></p>
+                    </div>
+
+                    
+                    <hr>
+                 
+                    <div class="mb-3 col-md-6">
+
+                        <input
+                        class="form-control"
+                        type="text"
+                        id="caracteres"
+                        class="caracteres"
+                        placeholder="idCliente"
+                        hidden
+                      />
+
+                        <input
+                          class="form-control"
+                          type="text"
+                          id="codigoorden"
+                          class="codigoorden"
+                          placeholder="idCliente"
+                          hidden
+                        />
+
+                        <input
+                        class="form-control"
+                        type="text"
+                        id="numinit"
+                        class="numinit"
+                        placeholder="idCliente"
+                        hidden
+                      />
+
+                        <input
+                        class="form-control"
+                        type="text"
+                        id="numordenproduccion"
+                        class="numordenproduccion"
+                        hidden
+                      />
+                      <label class="form-label" for="cliente">Orden de produccion</label>
+                      <div class="input-group">
+                      <a
+                        class="btn btn-outline-primary"
+                        type="button"
+                        aria-expanded="false"
+                        data-bs-toggle="modal"
+                        data-bs-target="#modalSearchOrdenProduccion"
+                      >
+                        Buscar
+                      </a>
+                   
+                      <input
+                      class="form-control"
+                      type="text"
+                      id="idord"
+                      name="idord"
+                      hidden
+                    />
+                      <input type="text" 
+                      style="font-weight: bold;"
+                      class="form-control text-danger" 
+                      id="ordenproduccion"
+                      readonly
+                      />
+                    </div>
+                    </div> 
+
+              
+
+                    <div class="mb-3 col-md-6">
+                      <label for="programadopor" class="form-label">Programado por</label>
+                     
+                      <input
+                      class="form-control"
+                      type="text"
+                      id="idUser"
+                      name="idUser"
+                      hidden
+                    />
+
+                      <input
+                        class="form-control"
+                        type="text"
+                        id="programado"
+                        readonly
+                      />
+                    </div>
+
+                    <hr>
+
+                  <div class="card mb-4">
+                      <!--Button Agregar producto-->
+
+                      <div>  
+                        <a
+                          href="#"
+                         class="btn btn-success mt-2 mb-2 text-white shadow-lg"
+                         id="btnAdd"
+                         data-bs-toggle="modal"
+                         data-bs-target="#modalSearchdetalles"
+                         >
+                         <i class='bx bxs-plus-circle bx-sm bx-tada' ></i>
+                         Adicionar producto</a>
+                        </div> 
+                
+
+                      
+
+                      <div class="table-responsive text-nowrap">
+                        <table class="table table-hover">
+                          <thead class="bg-black">
+                            <tr>
+                              <th class="text-white">Nº</th>
+                              <th class="text-white">Referencia</th>
+                              <th class="text-white">Producto</th>
+                              <th class="text-white">Cantidad a entregar</th>
+                              <th class="text-white">Actions</th>
+                            </tr>
+                          </thead>
+                          <tbody class="table-border-bottom-0" id="mynotaentregaedit">
+                            
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+
+                  <hr>
+
+                  <div class="mt-2">
+                    <button 
+                     type="submit" 
+                     id="btnRegister" 
+                     class="btn btn-primary me-2 shadow-lg">
+                     Guardar cambios
+                    </button>
+
+                    <button 
+                     type="reset" 
+                     id="btnCancelar" 
+                     class="btn btn-outline-secondary shadow-lg">
+                     Cancelar
+                    </button>
+
+                  </div>
+                </form>
+              </div>
+              <!-- /Account -->
+
+     <!-- Modal Editar detalle de orden - Producto/Servicio etc.. -->
+     <div class="modal fade" id="modalScrollableEdit" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+           <div class="modal-header">
+              <h5 class="modal-title" id="modalScrollableTitle">AGREGAR PRODUCTO</h5>
+
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <hr>
+
+                <div class="modal-body">
+                  <form id="form" action="#">
+                    <div class="row">                                
+                      <input type="text" id="eiddetallesOrdenProduccion"></input>
+                      
+                      <div class="mb-3 col-md-6">
+                        <label for="eproducto" class="form-label">Producto</label>
+                        <input
+                          class="form-control"
+                          type="text"
+                          id="eproducto"
+                          readonly
+                        />
+                      </div>
+                  
+                      <div class="mb-3 col-md-6">
+                        <label for="ereferencia" class="form-label">Referencia</label>
+                        <input
+                          class="form-control"
+                          type="text"
+                          id="ereferencia"
+                          readonly
+                        />
+                      </div>
+
+                      <div class="mb-3 col-md-6">
+                        <label for="ecantidadpendiente" class="form-label">Cantidad pendiente por entregar</label>
+                        <input
+                          class="form-control"
+                          type="number"
+                          id="ecantidadpendiente"
+                          readonly
+                        />
+                      </div>
+
+                   
+                      <div class="mb-3 col-md-6">
+                        <label for="ecantidadentregar" class="form-label">Cantidad a entregar</label>
+                        <input
+                          class="form-control"
+                          type="number"
+                          id="ecantidadentregar"
+                          value="1"
+                          required
+                        />
+                      </div>
+
+
+                   
+                    </div>
+                  </form>
+                      <button type="submit" class="btn btn-primary btn-guardarcambios" data-bs-dismiss="modal">Guardar cambios</button>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                    Cerrar
+                  </button>
+                </div>
+              </div>
+            </div>
+</div>
+
+
+  
+     <!-- Modal agregar detalle de orden - Producto/Servicio etc.. -->
+     <div class="modal fade" id="modalScrollable" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <h5 class="modal-title" id="modalScrollableTitle">AGREGAR PRODUCTO</h5>
+
+                            <button
+                              type="button"
+                              class="btn-close"
+                              data-bs-dismiss="modal"
+                              aria-label="Close"
+                            ></button>
+                          </div>
+                          <hr>
+
+                          <div class="modal-body">
+                            <form id="form" action="#">
+                              <div class="row">                                
+                                <input type="text" id="iddetallesOrdenProduccion" hidden></input>
+                                
+                                <div class="mb-3 col-md-6">
+                                  <label for="producto" class="form-label">Producto</label>
+                                  <input
+                                    class="form-control"
+                                    type="text"
+                                    id="producto"
+                                    readonly
+                                  />
+                                </div>
+                            
+                                <div class="mb-3 col-md-6">
+                                  <label for="referencia" class="form-label">Referencia</label>
+                                  <input
+                                    class="form-control"
+                                    type="text"
+                                    id="referencia"
+                                    readonly
+                                  />
+                                </div>
+
+                                <div class="mb-3 col-md-6">
+                                  <label for="cantidadpendiente" class="form-label">Cantidad pendiente por entregar</label>
+                                  <input
+                                    class="form-control"
+                                    type="number"
+                                    id="cantidadpendiente"
+                                    readonly
+                                  />
+                                </div>
+
+                             
+                                <div class="mb-3 col-md-6">
+                                  <label for="cantidadentregar" class="form-label">Cantidad a entregar</label>
+                                  <input
+                                    class="form-control"
+                                    type="number"
+                                    id="cantidadentregar"
+                                    value="1"
+                                    required
+                                  />
+                                </div>
+
+        
+                             
+                              </div>
+                            </form>
+                                <button type="submit" class="btn btn-primary btn-submit" data-bs-dismiss="modal">Enviar</button>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                              Cerrar
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+       </div>
+
+ 
+            
+        <!--Modal Buscar orden de orden de produccion-->
+      <div class="modal fade" id="modalSearchOrdenProduccion" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable modal-lg " role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="modalScrollableTitle">BUSCAR ORDEN DE PRODUCCION</h5>
+
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+
+                            </div>
+                            <div class="modal-body">
+                              <div class="input-group input-group-merge">
+                                <span class="input-group-text" id="basic-addon-search31"><i class="bx bx-search"></i></span>
+                                <input
+                                  type="text"
+                                  id="searchclt"
+                                  class="form-control"
+                                  placeholder="Search..."
+                                  aria-label="Search..."
+                                  autofocus
+                                />
+                              </div>                            
+                              <hr>
+                              <div class="card">
+                                <div class="table-responsive text-nowrap">
+                                  <table class="table table-hover mi-tabla">
+                                    <thead>
+                                      <tr>
+                                        <th>Nº</th>
+                                        <th>CODIGO</th>
+                                        <th>CLIENTE</th>
+                                        <th>PEDIDO</th>
+                                        <th>PROGRAMADO POR</th>
+                                        <th>FECHA PROGRAMADA</th>
+                                        <th>EXPORT PAIS</th>
+                                        <th>ACCION</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody class="table-border-bottom-0" id="myOrdenModal">
+                                      
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                              
+                       
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                Atras
+                              </button> 
+                            </div>
+                          </div>
+                        </div>
+                     </div>
+
+
+           <!--Modal Buscar detalle de orden de produccion-->
+      <div class="modal fade" id="modalSearchdetalles" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg " role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modalScrollableTitle">BUSCAR ORDEN DE PRODUCCION</h5>
+
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+
+            </div>
+            <div class="modal-body">
+              <div class="input-group input-group-merge">
+                <span class="input-group-text" id="basic-addon-search31"><i class="bx bx-search"></i></span>
+                <input
+                  type="text"
+                  id="searchclt"
+                  class="form-control"
+                  placeholder="Search..."
+                  aria-label="Search..."
+                  autofocus
+                />
+              </div>                            
+              <hr>
+              <div class="card">
+                <div class="table-responsive text-nowrap">
+                  <table class="table table-hover mi-tabla">
+                    <thead>
+                      <tr>
+                        <th>Nº</th>
+                        <th>Referencia</th>
+                        <th>Producto</th>
+                        <th>Uso</th>
+                        <th>Cantidad pendiente</th>
+                        <th>Fecha Requerida</th>
+                        <th>FabricMolde</th>
+                        <th>ACCION</th>
+                      </tr>
+                    </thead>
+                    <tbody class="table-border-bottom-0" id="mydetalleorden">
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              
+       
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                Atras
+              </button> 
+            </div>
+          </div>
+        </div>
+     </div>
+                      
+    
+            </div>
+          </div>
+        </div>
+      </div>
+    <div class="content-backdrop fade"></div>
+  </div>
+<div class="content-backdrop fade"></div>
+        
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="./js/Controllers/albaranes/nota-entrega.js"></script>
+    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="../assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+
+    <!-- Main JS -->
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

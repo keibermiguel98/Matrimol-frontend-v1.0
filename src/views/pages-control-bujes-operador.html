@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+
+<html
+  lang="en"
+  class="light-style layout-menu-fixed"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="../assets/"
+  data-template="vertical-menu-template-free"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+
+    <title>Matrimol SAS | Control de bujes</title>
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+
+
+
+    <!-- Icons. Uncomment required icon fonts -->
+    <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="../assets/css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <script src="../assets/vendor/js/helpers.js"></script>
+
+    <script src="../assets/js/config.js"></script>
+  </head>
+
+  <body>
+    <!-- Layout wrapper -->
+    <div class="content-wrapper">
+      <!-- Content -->
+      <div class="container-xxl flex-grow-1 container-p-y">
+        <a href="panelbujesaisladores.html" class="btn btn-danger" id="btnvolver"><i class='bx bxs-caret-left-circle bx-burst-hover bx-md'></i> Atras</a> 
+        <hr>
+       <h4 class="fw-bold py-3 mb-4">CONTROL DE BUJES - <span id="nameoperador"></span></h4>
+        <!--PENDIENTE POR ALINEAR ROW NO FUNCIONA-->
+    
+        <div class="row">
+          <div class="col-md-12">   
+            <div class="card mb-4">
+              <!-- Account -->
+              <hr class="my-0" />
+              <div class="card-body">
+             
+                <form id="formControlBujes" action="#">
+                  <div class="row">
+                  <div class="card mb-4">
+                  <!--Formulario para agregar datos del detalle de control de bujes-->
+                  <div class="row col-md-12" id="totales">
+                        
+                    <div class="col shadow m-2 mt-4 text-center" style="padding:20px; border-radius: 5px;" id="cantInicial"> 
+                     <!-- Contenido de la mitad izquierda -->
+                         <span class="fw-semibold d-block mb-1">Cantid inicial</span>
+                         <h1 class="card-title mb-2">0</h1>
+                         <small class="text-warning fw-semibold"><i class="bx bx-up-arrow-alt"></i> +00.00</small>
+                       </div>
+                       <div class="col shadow m-2 mt-4 text-center" style="padding:20px; border-radius: 5px;" id="cantAgregada"> 
+                         <!-- Contenido de la mitad derecha -->
+                         <span class="fw-semibold d-block mb-1">Cantidad Agregada</span>
+                         <h1 class="card-title mb-2">0</h1>
+                         <small class="text-success m-3 fw-semibold"><i class="bx bx-up-arrow-alt"></i></small>
+                       </div>
+                     
+             
+                   
+                     <div class="col shadow m-2 mt-4 text-center" style="padding:20px; border-radius: 5px;" id="totProducido"> 
+                         <p>Total Produccidos</p>
+                         <h1>0</h1>
+                    </div>    
+
+
+                    <div class="cantPendiente col shadow m-2 mt-4 text-center" style="padding:20px; border-radius: 5px;" id="cantPen">
+                     <p>Pendientes por fabricar</p>
+                    <h1>0</h1>
+                  </div>      
+
+                  <div class="col shadow m-2 mt-4 text-center" style="padding:20px; border-radius: 5px;" id="cantConforme"> 
+                   <!-- Contenido de la mitad izquierda -->
+                       <span class="fw-semibold d-block mb-3">Conformes</span>
+                       <h1 class="card-title mb-2">0</h1>
+                       
+                       <small class="text-warning fw-semibold"><i class="bx bx-up-arrow-alt"></i></small>
+                     </div>
+                     <div class="col shadow m-2 mt-4 text-center" style="padding:20px; border-radius: 5px;" id="cantNoConforme"> 
+                       <!-- Contenido de la mitad derecha -->
+                       <span class="fw-semibold d-block mb-3">No conformes</span>
+                       <h1 class="card-title mb-2">0</h1>
+                       <small class="text-success m-3 fw-semibold"><i class="bx bx-up-arrow-alt"></i></small>
+                     </div>
+                 </div>                      
+                   </div>                
+                      <!--Id control de bujes-->
+                      <input type="text" id="idcontrolbujes" class="form-control" hidden/>                      
+                    </div>
+                    
+        <form id="formControlBujes" action="#">
+           <div class="row">
+            <div class="card mb-4">
+               <!--Formulario para agregar datos del detalle de control de bujes-->
+                <div class="row col-md-12 d-none" id="formcontrol">
+                 <div class="col-md-3 mb-3">
+                        <label for="nameExLarge" class="form-label">Conformes</label>
+                    <input type="number" id="inputCantidad" class="form-control c "  style="font-size: 25px;" data-bs-toggle="modal"  data-bs-target="#teclado1" />
+                        <p class="messagecantidad text-danger"></p>
+                      </div>
+                      <div class="col-md-3 mb-3">
+                        <label for="nameExLarge" class="form-label">Longitud buje(MM)</label>
+                        <input type="text" id="inputLgBuje" class="form-control"  style="font-size: 25px;" readonly />
+                      </div>
+                      <div class="col-md-3 mb-3">
+                        <label for="nameExLarge" class="form-label">Longitud de rosca(MM)</label>
+                        <input type="text" id="inputLgRoscaMm" class="form-control" style="font-size: 25px;" readonly />
+                      </div>
+                      <div class="col-md-3 mb-3">
+                        <label for="nameExLarge" class="form-label">Perforados</label>
+                        <input type="number" id="inputPerforados" class="form-control n" style="font-size: 25px;" data-bs-toggle="modal"  data-bs-target="#teclado2" />
+                      </div>
+                      <div class="col-md-3 mb-3">
+                        <label for="nameExLarge" class="form-label">Descentrados</label>
+                        <input type="number" id="inputDescentrados" class="form-control n " style="font-size: 25px;" data-bs-toggle="modal"  data-bs-target="#teclado3"/>
+                      </div>
+                      <div class="col-md-3 mb-3">
+                        <label for="nameExLarge" class="form-label">Longitud de rosca</label>
+                        <input type="number" id="inputLgRosca" class="form-control n " style="font-size: 25px;" data-bs-toggle="modal"  data-bs-target="#teclado4"/>
+                      </div>
+                      <div class="col-md-3 mb-3">
+                        <label for="nameExLarge" class="form-label">Rosca equivocada</label>
+                        <input type="number" id="inputRoscEquivocada" class="form-control n" style="font-size: 25px;" data-bs-toggle="modal"  data-bs-target="#teclado5"/>
+                      </div>
+                      <div class="col-md-3 mb-3">
+                        <label for="nameExLarge" class="form-label">Herramienta partida en el buje</label>
+                        <input type="number" id="inputHerrPartida" class="form-control n " style="font-size: 25px;" data-bs-toggle="modal"  data-bs-target="#teclado6"/>
+                      </div>           
+                      <div class=" col-md-12 mt-2" >
+                        <button class="btn btn-primary mb-4 col-2" style="font-size: 25px;" id="btnTerminar">Agregar</button>
+                        <button class="btn btn-outline-secondary mb-4 col-2" style="font-size: 25px;" id="btnTerminar">Atras</button>
+                      </div>                
+                    </div>
+
+                    
+                      <!--Button Agregar producto-->
+                      <div class="row col-md-12">  
+                        <div class="col-md-2 mt-4">  <button
+                          class="btn btn-success mt-2 mb-2 text-white"
+                          id="mostrar"
+                          >
+                          <i class='bx bx-add-to-queue bx-md bx-tada text-white'></i>
+                         </button>
+                        </div>
+                    
+                     <div class="row col-md-8 justify-content-center">
+                      <div class="col-md-3 mb-3">
+                        <label for="referencia" class="form-label">Referencia</label>
+                        <input type="text" id="referencia" class="form-control border-0" style="font-size: 25px; background: ghostwhite;" readonly/>
+                      </div>
+
+                      <div class="col-md-3 mb-3">
+                        <label for="nameExLarge" class="form-label">Maquina</label>
+                        <input type="text" id="maquinaria" class="form-control border-0" style="font-size: 25px; background: ghostwhite; width: 300px;" readonly />
+                      </div>  
+                      </div>
+                      </div>
+
+                      <div class="table-responsive text-nowrap">
+                        <table class="table table-hover">
+                          <thead class="bg-black">
+                            <tr>
+                              <th class="text-white">Nº</th>
+                              <th class="text-white">Fecha</th>
+                              <th class="text-white">Hora</th>
+                              <th class="text-white">Conformes</th>
+                              <th class="text-white">Longitud Buje(MM)</th>
+                              <th class="text-white">Longitud Rosca(MM)</th>
+                              <th class="text-white">Perforados</th>
+                              <th class="text-white">Descentrados</th>
+                              <th class="text-white">Longitud Rosca</th>
+                              <th class="text-white">Longitud Externa</th>
+                              <th class="text-white">Rosca equivocada</th>
+                              <th class="text-white">Herramienta partida en el buje</th>
+                            </tr>
+                          </thead>
+                          <tbody class="table-border-bottom-0" id="mycontrolbujes">
+                            
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+
+                  <hr>
+
+                  <div class="mt-2 mb-3">
+               
+
+                    <button 
+                     type="reset" 
+                     id="btnCancelar" 
+                     class="btn btn-outline-secondary"
+                     style='font-size: 20px;'
+                     >
+                     Atras
+                    </button>
+
+                  </div>
+
+                </form>
+        
+              </div>
+          </div>
+       </div>
+   </div>  
+   
+   
+  </div>
+
+  <!--Teclado 1 -->
+  <div class="modal fade" id="teclado1" data-bs-backdrop="static" tabindex="-1">
+    <div class="modal-dialog">
+      <form class="modal-content">
+        <div class="modal-header">
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>        
+        <div class="modal-body">
+          <div class="row">
+            <div class="col mb-3">
+              <input
+                type="number"
+                id="inputtecladouno"
+                placeholder="0"
+                class="form-control rounded text-center"
+                style="font-size: 70px; border:none;"
+              />
+              <p class="text-danger text-center" style="font-size: 30px;" id="messagetecladoone"></p>
+            </div>
+          </div>
+          <div class="teclado d-flex col-md-12 row justify-content-center">
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="uno">1</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="dos">2</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="tres">3</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="cuatro">4</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="cinco">5</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="seis">6</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="siete">7</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="ocho">8</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="nueve">9</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="cero">0</button>
+            <button class="btn btn-danger col-3 m-2 rounded" id="clearBtn"><i class='bx bx-trash bx-md'></i></button>
+            <button class="btn btn-info col-3 m-2 rounded" id="enviarinputone" data-bs-dismiss="modal" aria-label="Close"><i class='bx bx-send bx-md'></i></button>
+           </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+   <!--Teclado 2 -->
+   <div class="modal fade" id="teclado2" data-bs-backdrop="static" tabindex="-1">
+    <div class="modal-dialog">
+      <form class="modal-content">
+        <div class="modal-header">
+
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+
+        </div>
+        
+        <div class="modal-body">
+          <div class="row">
+            <div class="col mb-3">
+              <input
+                type="number"
+                id="inputtecladodos"
+                placeholder="0"
+                class="form-control rounded text-center"
+                style="font-size: 70px; border:none;"
+              />
+              <p class="text-danger text-center" style="font-size: 30px;" id="messagetecladodos"></p>
+            </div>
+          </div>
+          <div class="teclado d-flex col-md-12 row justify-content-center">
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="unoper">1</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="dosper">2</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="tresper">3</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="cuatroper">4</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="cincoper">5</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="seisper">6</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="sieteper">7</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="ochoper">8</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="nueveper">9</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="ceroper">0</button>
+            <button class="btn btn-danger col-3 m-2 rounded" id="clearBtndos"><i class='bx bx-trash bx-md'></i></button>
+            <button class="btn btn-info col-3 m-2 rounded" id="enviarinputdos" data-bs-dismiss="modal" aria-label="Close"><i class='bx bx-send bx-md'></i></button>
+           </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+   <!--Teclado 3-->
+   <div class="modal fade" id="teclado3" data-bs-backdrop="static" tabindex="-1">
+    <div class="modal-dialog">
+      <form class="modal-content">
+        <div class="modal-header">
+
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+
+        </div>
+        
+        <div class="modal-body">
+          <div class="row">
+            <div class="col mb-3">
+              <input
+                type="number"
+                id="inputtecladotres"
+                placeholder="0"
+                class="form-control rounded text-center"
+                style="font-size: 70px; border:none;"
+              />
+              <p class="text-danger text-center" style="font-size: 30px;" id="messagetecladotres"></p>
+            </div>
+          </div>
+          <div class="teclado d-flex col-md-12 row justify-content-center">
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="unodesc">1</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="dosdesc">2</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="tresdesc">3</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="cuatrodesc">4</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="cincodesc">5</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="seisdesc">6</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="sietedesc">7</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="ochodesc">8</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="nuevedesc">9</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="cerodesc">0</button>
+            <button class="btn btn-danger col-3 m-2 rounded" id="clearBtntres"><i class='bx bx-trash bx-md'></i></button>
+            <button class="btn btn-info col-3 m-2 rounded" id="enviarinputtres" data-bs-dismiss="modal" aria-label="Close"><i class='bx bx-send bx-md'></i></button>
+           </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+   <!--Teclado 4 -->
+   <div class="modal fade" id="teclado4" data-bs-backdrop="static" tabindex="-1">
+    <div class="modal-dialog">
+      <form class="modal-content">
+        <div class="modal-header">
+
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+
+        </div>
+        
+        <div class="modal-body">
+          <div class="row">
+            <div class="col mb-3">
+              <input
+                type="number"
+                id="inputtecladocuatro"
+                placeholder="0"
+                class="form-control rounded text-center"
+                style="font-size: 70px; border:none;"
+              />
+              <p class="text-danger text-center" style="font-size: 30px;" id="messagetecladocuatro"></p>
+            </div>
+          </div>
+          <div class="teclado d-flex col-md-12 row justify-content-center">
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="unolr">1</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="doslr">2</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="treslr">3</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="cuatrolr">4</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="cincolr">5</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="seislr">6</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="sietelr">7</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="ocholr">8</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="nuevelr">9</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="cerolr">0</button>
+            <button class="btn btn-danger col-3 m-2 rounded" id="clearBtncuatro"><i class='bx bx-trash bx-md'></i></button>
+            <button class="btn btn-info col-3 m-2 rounded" id="enviarinputcuatro" data-bs-dismiss="modal" aria-label="Close"><i class='bx bx-send bx-md'></i></button>
+           </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+   <!--Teclado 5 -->
+   <div class="modal fade" id="teclado5" data-bs-backdrop="static" tabindex="-1">
+    <div class="modal-dialog">
+      <form class="modal-content">
+        <div class="modal-header">
+
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+
+        </div>
+        
+        <div class="modal-body">
+          <div class="row">
+            <div class="col mb-3">
+              <input
+                type="number"
+                id="inputtecladocinco"
+                placeholder="0"
+                class="form-control rounded text-center"
+                style="font-size: 70px; border:none;"
+              />
+              <p class="text-danger text-center" style="font-size: 30px;" id="messagetecladocinco"></p>
+            </div>
+          </div>
+          <div class="teclado d-flex col-md-12 row justify-content-center">
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="unore">1</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="dosre">2</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="tresre">3</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="cuatrore">4</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="cincore">5</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="seisre">6</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="sietere">7</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="ochore">8</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="nuevere">9</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="cerore">0</button>
+            <button class="btn btn-danger col-3 m-2 rounded" id="clearBtncinco"><i class='bx bx-trash bx-md'></i></button>
+            <button class="btn btn-info col-3 m-2 rounded" id="enviarinputcinco" data-bs-dismiss="modal" aria-label="Close"><i class='bx bx-send bx-md'></i></button>
+           </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+   <!--Teclado 6 -->
+   <div class="modal fade" id="teclado6" data-bs-backdrop="static" tabindex="-1">buj
+    <div class="modal-dialog">
+      <form class="modal-content">
+        <div class="modal-header">
+
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+
+        </div>
+        
+        <div class="modal-body">
+          <div class="row">
+            <div class="col mb-3">
+              <input
+                type="number"
+                id="inputtecladoseis"
+                placeholder="0"
+                class="form-control rounded text-center"
+                style="font-size: 70px; border:none;"
+              />
+              <p class="text-danger text-center" style="font-size: 30px;" id="messagetecladoseis"></p>
+            </div>
+          </div>
+          <div class="teclado d-flex col-md-12 row justify-content-center">
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="unohp">1</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="doshp">2</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="treshp">3</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="cuatrohp">4</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="cincohp">5</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="seishp">6</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="sietehp">7</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="ochohp">8</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="nuevehp">9</button>
+            <button class="col-3 btn btn-primary m-2 rounded p-4" style="font-size: 20px;" id="cerohp">0</button>
+            <button class="btn btn-danger col-3 m-2 rounded" id="clearBtnseis"><i class='bx bx-trash bx-md'></i></button>
+            <button class="btn btn-info col-3 m-2 rounded" id="enviarinputseis" data-bs-dismiss="modal" aria-label="Close"><i class='bx bx-send bx-md'></i></button>
+           </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+ 
+ 
+                  
+                      <!--Modal Buscar Clientes-->
+                      <div class="modal fade" id="modalSearchClient" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable " role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="modalScrollableTitle">Buscar cliente</h5>
+
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+
+                            </div>
+                            <div class="modal-body">
+                              <div class="input-group input-group-merge">
+                                <span class="input-group-text" id="basic-addon-search31"><i class="bx bx-search"></i></span>
+                                <input
+                                  type="text"
+                                  id="buscador"
+                                  class="form-control"
+                                  placeholder="Search..."
+                                  aria-label="Search..."
+                                  aria-describedby="basic-addon-search31"
+                                />
+                              </div>
+                            
+                              <hr>
+
+                              <div class="card">
+                                <div class="table-responsive text-nowrap">
+                                  <table class="table table-hover">
+                                    <thead>
+                                      <tr>
+                                        <th>IDENTIFICACION</th>
+                                        <th>NOMBRE</th>
+                                        <th>APELLIDO</th>
+                                        <th>ACCION</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody class="table-border-bottom-0" id="mysClientes">
+                                      
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                              
+                       
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                Cancelar
+                              </button>
+                  
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+
+                      
+                      <!--Modal Buscar Clientes-->
+                      <div class="modal fade" id="modalSearchArticle" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable " role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="modalScrollableTitle">Buscar productos</h5>
+
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+
+                            </div>
+                            <div class="modal-body">
+                              <div class="input-group input-group-merge">
+                                <span class="input-group-text" id="basic-addon-search31"><i class="bx bx-search"></i></span>
+                                <input
+                                  type="text"
+                                  id="buscador"
+                                  class="form-control"
+                                  placeholder="Search..."
+                                  aria-label="Search..."
+                                  aria-describedby="basic-addon-search31"
+                                />
+                              </div>
+                            
+                              <hr>
+
+                              <div class="card">
+                                <div class="table-responsive text-nowrap">
+                                  <table class="table table-hover">
+                                    <thead>
+                                      <tr>
+                                        <th>REFERENCIA</th>
+                                        <th>DESCRIPCION</th>
+                                        <th>UNIDAD</th>
+                                        <th>ACCION</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody class="table-border-bottom-0" id="mysArticles">
+                                      
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                              
+                       
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                Cancelar
+                              </button>
+                  
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- / Content -->
+
+      <!-- Footer -->
+     
+
+      <div class="content-backdrop fade"></div>
+    </div>
+    <!-- Content wrapper -->
+  </div>
+ 
+            <div class="content-backdrop fade"></div>
+          </div>
+          <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+      </div>
+    </div>
+    <!-- / Layout wrapper -->
+
+
+
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <script src="../assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+
+    <script src="./js/Controllers/controlBujesOperador/control-bujes-operador.js"></script>
+    <!-- Main JS -->
+    <script src="../assets/js/main.js"></script>
+
+    <!-- Page JS -->
+
+    <!-- Place this tag in your head or just before your close body tag. -->
+  </body>
+</html>

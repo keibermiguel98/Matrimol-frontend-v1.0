@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html
+  lang="en"
+  class="light-style layout-menu-fixed"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="../assets/"
+  data-template="vertical-menu-template-free"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+
+    <title>Matrimol SAS - Maquinaria</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+
+
+    <!-- Icons. Uncomment required icon fonts -->
+    <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="../assets/css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <!-- Page CSS -->
+
+    <!-- Helpers -->
+    <script src="../assets/vendor/js/helpers.js"></script>
+
+    
+  </head>
+
+  <body>
+  
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <a href="tables-maquinarias.html" class="btn btn-danger">Atras</a>
+              <hr>
+              <h4 class="fw-bold py-3 mb-4">MAQUINARIA</h4>
+
+              <div class="row">
+                <div class="col-md-12">
+               
+                  <div class="card mb-4">
+                    <!-- Account -->
+                  
+                    <hr class="my-0" />
+                    <div class="card-body">
+                      <form id="formAccountSettings" action="#">
+                        <div class="row">
+                            <input
+                            class="form-control"
+                            type="text"
+                            id="id"
+                            name="id"
+                            hidden
+                          />
+                       
+                          <div class="mb-3 col-md-4">
+                            <label for="codigo" class="form-label">Codigo</label>
+                            <input
+                              class="form-control"
+                              type="text"
+                              id="codigo"
+                              name="codigo"
+                              placeholder="Example: 001"
+                              autofocus
+                            />
+                            <p class="text-danger" id="validarCodigo"></p>
+                          </div>
+
+                          <div class="mb-3 col-md-4">
+                          <label for="numeromaquina" class="form-label">Maquina Nº</label>
+                          <input
+                            class="form-control"
+                            type="text"
+                            id="numeromaquina"
+                            placeholder="Example: 1"
+                          />
+                          <p id="validarNumero" class="text-danger"></p>
+                        </div>
+
+                          <div class="mb-3 col-md-4">
+                            <label for="descripcion" class="form-label">Descripcion</label>
+                            <input class="form-control" 
+                            type="text"
+                            name="descripcion"
+                            id="descripcion" 
+                            placeholder="Example: Torno"/>
+                            <p id="validarDescripcion" class="text-danger"></p>
+                          </div>
+                          
+                          
+                        <div class="mt-2">
+                          <button 
+                           type="submit" 
+                           id="btnGuardar" 
+                           class="btn btn-primary me-2">
+                           Guardar cambios
+                          </button>
+
+                          <button 
+                           type="reset" 
+                           id="btnCancelar" 
+                           class="btn btn-outline-secondary">
+                           Cancelar
+                          </button>
+
+                          <button 
+                          type="button" 
+                          id="btnEliminar" 
+                          class="btn btn-danger">
+                          Eliminar
+                         </button>
+
+                        </div>
+                      </form>
+                    </div>
+                    <!-- /Account -->
+                  </div>
+
+              </div>
+              </div>
+            </div>
+            <!-- / Content -->
+
+            <div class="content-backdrop fade"></div>
+          </div>
+          <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+      </div>
+
+      <!-- Overlay -->
+      <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+    <!-- / Layout wrapper -->
+
+
+    <!-- Core JS -->
+
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <script src="../assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+
+    <!-- Main JS -->
+    <script src="../assets/js/main.js"></script>
+    
+       <!--Controlador de datos JS -->
+       <script src="./js/Controllers/maquinarias/account-maquinarias.js"></script>
+
+  </body>
+</html>

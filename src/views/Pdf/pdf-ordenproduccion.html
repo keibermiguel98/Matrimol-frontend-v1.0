@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factura</title>
+
+
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+         
+        }
+  
+        
+  
+        .encabezado {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 20px;
+        }
+  
+        .encabezado h1 {
+          font-size: 24px;
+          margin: 0;
+        }
+  
+        .encabezado p {
+          font-size: 14px;
+          margin: 0;
+        }
+  
+        .tabla {
+          width: 100%;
+          border-collapse: collapse;
+        }
+  
+        .tabla th,
+        .tabla td {
+          border: 1px solid #ccc;
+          padding: 10px;
+          text-align: center;
+        }
+
+        .contenedor {          
+        font-size: 8;
+        /* establece el tamaño de la fuente en 0 para que los elementos no tengan un espacio en blanco */
+  }
+  
+
+  .info {
+    display: inline-block;
+    width: 33.33%;
+    /* establece el ancho del elemento en un tercio del contenedor */
+    font-size: 16px;
+    /* restablece el tamaño de la fuente a su valor original */
+    vertical-align: top;
+    /* alinea los elementos en la parte superior */
+    box-sizing: border-box;
+    /* establece el modelo de caja a border-box para que el ancho incluya el padding y el borde */
+    padding: 10px;
+  }
+  
+        
+      </style>
+</head>
+<body>
+    
+          <div class="encabezado">
+            <img src="https://matrimol.com.co/wp-content/uploads/2022/03/cropped-matri4.png" alt="logo" height="100" width="100">
+            <p>NIT 860068281-6</p>
+          </div>
+
+          <div class="contenedor">
+            <div class="info">
+              <h4>ORDEN PRODUCCCION</h4>
+              <div style="font-size: 14px;">ORDEN Nº</div>
+              <div style="font-size: 14px;">CODIGO</div>
+              <div style="font-size: 14px;">REVISION Nº:</div>
+              <div style="font-size: 14px;">PEDIDO</div>
+              <div style="font-size: 14px;">EXPORTACION-PAIS</div>
+              <div style="font-size: 14px;">PROPIEDAD CLIENTE</div>
+            </div>
+
+            <div class="info">
+              <h4>ORDEN PRODUCCCION</h4>
+              <div style="font-size: 14px;">ORDEN Nº</div>
+              <div style="font-size: 14px;">CODIGO</div>
+              <div style="font-size: 14px;">REVISION Nº:</div>
+              <div style="font-size: 14px;">PEDIDO</div>
+              <div style="font-size: 14px;">EXPORTACION-PAIS</div>
+              <div style="font-size: 14px;">PROPIEDAD CLIENTE</div>
+            </div>
+
+            <div class="info">
+              <h4>ORDEN PRODUCCCION</h4>
+              <div style="font-size: 14px;">ORDEN Nº</div>
+              <div style="font-size: 14px;">CODIGO</div>
+              <div style="font-size: 14px;">REVISION Nº:</div>
+              <div style="font-size: 14px;">PEDIDO</div>
+              <div style="font-size: 14px;">EXPORTACION-PAIS</div>
+              <div style="font-size: 14px;">PROPIEDAD CLIENTE</div>
+            </div>
+          
+    
+          <table class="tabla">
+            <thead>
+              <tr style="background-color: royalblue; color: aliceblue;">
+                <th>Producto</th>
+                <th>Referencia</th>
+                <th>Cantidad</th>
+                <th>FabricMolde</th>
+                <th>Uso</th>
+                <th>Observaciones</th>
+                <th>Fecha Entrega</th>
+              </tr>
+            </thead>
+            <tbody id="myordenpdf">
+              
+            </tbody>
+          </table>
+
+    
+         
+          <footer style="display: flex; justify-content: center;">
+            <div class="phone" style="margin-right: 20px;">041455654</div>
+            <div class="web" style="margin-right: 20px;">www.matrimol.com</div>
+            <div class="direccion">Bogota - Toberin</div>  
+          </footer>
+
+    
+</body>

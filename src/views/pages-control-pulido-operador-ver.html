@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+<html
+  lang="en"
+  class="light-style layout-menu-fixed"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="../assets/"
+  data-template="vertical-menu-template-free"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+
+    <title>Matrimol SAS | Control de pulido</title>
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+
+
+
+    <!-- Icons. Uncomment required icon fonts -->
+    <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="../assets/css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <script src="../assets/vendor/js/helpers.js"></script>
+
+    <script src="../assets/js/config.js"></script>
+  </head>
+
+  <body>
+    <!-- Layout wrapper -->
+    <div class="content-wrapper">
+      <!-- Content -->
+      <div class="container-xxl flex-grow-1 container-p-y">
+        <a href="tables-control-produccion-pulido.html" class="btn btn-danger" id="btnvolver"><i class='bx bxs-caret-left-circle bx-burst-hover bx-md'></i> Atras</a> 
+        <hr>
+       <h4 class="fw-bold py-3 mb-4">CONTROL DE PULIDO - <span id="nameoperador"></span></h4>
+        <!--PENDIENTE POR ALINEAR ROW NO FUNCIONA-->
+    
+        <div class="row">
+          <div class="col-md-12">   
+            <div class="card mb-4">
+              <!-- Account -->
+              <hr class="my-0" />
+              <div class="card-body">
+             
+                <form id="formControlBujes" action="#">
+                  <div class="row">
+                  <div class="card mb-4">
+                   
+
+                  <!--Formulario para agregar datos del detalle de control de bujes-->
+                    <div class="row col-md-12" id="totales">
+                        
+                       <div class="col shadow m-2 mt-4 text-center" style="padding:20px; border-radius: 5px;" id="cantInicial"> 
+                        <!-- Contenido de la mitad izquierda -->
+                            <span class="fw-semibold d-block mb-1">Cantidad inicio</span>
+                            <h1 class="card-title mb-2">0</h1>
+                          </div>
+                         <!-- <div class="col shadow m-2 mt-4 text-center" style="padding:20px; border-radius: 5px;" id="cantAgregada"> 
+                            
+                            <span class="fw-semibold d-block mb-1">Cantidad Agregada</span>
+                            <h1 class="card-title mb-2">0</h1>
+                            <small class="text-success m-3 fw-semibold"><i class="bx bx-up-arrow-alt"></i></small>
+                          </div> -->
+                        
+                
+
+                     <div class="col shadow m-2 mt-4 text-center" style="padding:20px; border-radius: 5px;" id="cantConforme"> 
+                      <!-- Contenido de la mitad izquierda -->
+                          <span class="fw-semibold d-block mb-3">Conformes trabajados</span>
+                          <h1 class="card-title mb-2">0</h1>
+                          
+                          <small class="text-warning fw-semibold"><i class="bx bx-up-arrow-alt"></i></small>
+                        </div>
+                        <div class="col shadow m-2 mt-4 text-center" style="padding:20px; border-radius: 5px;" id="cantNoConforme"> 
+                          <!-- Contenido de la mitad derecha -->
+                          <span class="fw-semibold d-block mb-3">No conformes trabajados</span>
+                          <h1 class="card-title mb-2">0</h1>
+                          <small class="text-success m-3 fw-semibold"><i class="bx bx-up-arrow-alt"></i></small>
+                        </div>
+
+                 
+                  </div>
+                       
+                      <!--Id control de Aisladores-->
+                      <input type="text" id="idcontrolapulido" class="form-control" hidden/>
+                    </div>
+
+
+
+                <form id="formControlBujes" action="#">
+                  <div class="row">
+             
+            
+
+
+                      <!--Button Agregar detalles del control process-->
+                      <div class="row col-md-12">  
+                   
+                    
+                     <div class="row col-md-8 justify-content-center">
+                      <div class="col-md-3 mb-3">
+                        <label for="nameExLarge" class="form-label">Referencia</label>
+                        <input type="text" id="referencia" class="form-control border-0" style="font-size: 25px; background: ghostwhite;" readonly/>
+                      </div>
+
+                      <div class="col-md-3 mb-3">
+                        <label for="nameExLarge" class="form-label">Producto</label>
+                        <input type="text" id="maquinaria" class="form-control border-0" style="font-size: 25px; background: ghostwhite" readonly />
+                      </div>  
+                      </div>
+                      </div>
+
+                      <div class="table-responsive text-nowrap">
+                        <table class="table table-hover">
+                          <thead class="bg-black">
+                            <tr>
+                              <th class="text-white">Nº</th>
+                              <th class="text-white">Referencia</th>
+                              <th class="text-white">Actividad</th>
+                              <th class="text-white">Fecha</th>
+                              <th class="text-white">Hora inicio</th>
+                              <th class="text-white">Hora finaliza</th>
+                              <th class="text-white">Conformes</th>
+                              <th class="text-white">Linea flujo</th>
+                              <th class="text-white">Chupados</th>
+                              <th class="text-white">Escurrido</th>
+                              <th class="text-white">Presion</th>
+                              <th class="text-white">Rotura</th>
+                              <th class="text-white">Bujes</th>
+                              <th class="text-white">Burbuja</th>
+                       
+                            </tr>
+                          </thead>
+                          <tbody class="table-border-bottom-0" id="mycontrolpulido">
+                            
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+
+                  <hr>
+
+           
+
+                </form>
+        
+              </div>
+          </div>
+       </div>
+   </div>  
+   
+   
+  </div>   
+
+
+
+
+
+
+
+      
+
+                  
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- / Content -->
+
+      <!-- Footer -->
+     
+
+      <div class="content-backdrop fade"></div>
+    </div>
+    <!-- Content wrapper -->
+  </div>
+ 
+            <div class="content-backdrop fade"></div>
+          </div>
+          <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+      </div>
+    </div>
+    <!-- / Layout wrapper -->
+
+
+
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <script src="../assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+
+    <script src="./js/Controllers/controlPulidoOperador/control-pulido-operador-ver.js"></script>
+    <!-- Main JS -->
+    <script src="../assets/js/main.js"></script>
+
+    <!-- Page JS -->
+
+    <!-- Place this tag in your head or just before your close body tag. -->
+  </body>
+</html>
